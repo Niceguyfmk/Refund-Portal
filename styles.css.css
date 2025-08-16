@@ -1,0 +1,17 @@
+.investment-logos {
+  overflow-x: auto; /* Add horizontal scrollbar */
+  padding: 20px; /* Add some padding for aesthetics */
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows */
+  grid-gap: 10px;
+}
+
+.logo-grid img {
+  width: 100%; /* Make logos take up full width of grid cell */
+  height: 100%; /* Make logos take up full height of grid cell */
+  object-fit: cover; /* Make logos cover entire grid cell */
+}
