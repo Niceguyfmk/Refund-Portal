@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZA Ventures - We Take You to Great Heights in the Future</title>
+    <title>AZA Ventures - Refund Portal</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -91,130 +91,189 @@
             background: #0069d9;
         }
         
-        .section {
-            padding: 80px 0;
+        .verification-type {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
         }
         
-        .section-title {
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #007bff;
-        }
-        
-        .feature-box {
-            padding: 30px;
-            border-radius: 10px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .verification-option {
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
             transition: all 0.3s;
-            height: 100%;
+            border: 2px solid transparent;
         }
         
-        .feature-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .verification-option:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
         
-        .feature-icon {
-            font-size: 40px;
-            color: #007bff;
-            margin-bottom: 20px;
+        .verification-option.active {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+            font-weight: bold;
         }
         
-        footer {
-            background: #343a40;
-            color: white;
-            padding: 30px 0;
+        .verification-icon {
+            margin-right: 10px;
         }
         
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            margin: 0 10px;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: #007bff;
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
     </style>
 </head>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="assets/img/aza-ventures-logo.png" alt="AZA Ventures">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
-<!-- Hero Section with Search Bar -->
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-content text-center" data-aos="fade-up">
-            <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
-            <p class="lead mb-5">Please enter your email-ID or telegram-ID</p>
-
-            <!-- Search Bar -->
-            <div class="search-container" data-aos="fade-up" data-aos-delay="300">
-                <form action="#" method="GET">
-                    <div class="input-group">
-                        <input type="text" class="form-control search-input">
-                        <button class="search-btn" type="submit">
-                            <i class="fas fa-search"></i> Search
-                        </button>
-                    </div>
-                </form>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/aza-ventures-logo.png" alt="AZA Ventures">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="refund.html">Refund Portal</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!--==================================
+    <!-- Hero Section with Search Bar -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center" data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
+                <p class="lead mb-5">Please verify your identity to proceed</p>
+
+                <!-- Verification Type Selection -->
+                <div class="verification-type" data-aos="fade-up" data-aos-delay="100">
+                    <div class="verification-option active" id="kyc-option">
+                        <i class="fas fa-user verification-icon"></i>
+                        KYC (Individual)
+                    </div>
+                    <div class="verification-option" id="kyb-option">
+                        <i class="fas fa-building verification-icon"></i>
+                        KYB (Business)
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-container" data-aos="fade-up" data-aos-delay="300">
+                    <form action="#" method="GET" id="verification-form">
+                        <input type="hidden" name="verification_type" id="verification_type" value="kyc">
+                        
+                        <label for="search-input" class="input-label" id="input-label">
+                            Enter your email address or Telegram ID
+                        </label>
+                        
+                        <div class="input-group">
+                            <input type="text" class="form-control search-input" id="search-input" 
+                                   placeholder="e.g., user@example.com or @telegram_username" required>
+                            <button class="search-btn" type="submit">
+                                <i class="fas fa-search"></i> Verify
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--==================================
        Footer End Here
     ===================================-->
 
-<script src="assets/libs/jquery/dist/jquery.min.js"></script>
-<script src="assets/libs/aos/dist/aos.js"></script>
-<script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
-<script src="assets/js/app.js"></script>
-
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/aos/dist/aos.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Verification type selection
+        $(document).ready(function() {
+            // Set initial active state
+            $('#kyc-option').addClass('active');
+            $('#kyb-option').removeClass('active');
+            $('#verification_type').val('kyc');
+            
+            // KYC option click handler
+            $('#kyc-option').click(function() {
+                $(this).addClass('active');
+                $('#kyb-option').removeClass('active');
+                $('#verification_type').val('kyc');
+                $('#input-label').text('Enter your email address or Telegram ID');
+                $('#search-input').attr('placeholder', 'e.g., user@example.com or @telegram_username');
+            });
+            
+            // KYB option click handler
+            $('#kyb-option').click(function() {
+                $(this).addClass('active');
+                $('#kyc-option').removeClass('active');
+                $('#verification_type').val('kyb');
+                $('#input-label').text('Enter your business email or official Telegram ID');
+                $('#search-input').attr('placeholder', 'e.g., admin@company.com or @company_official');
+            });
+            
+            // Form submission
+            $('#verification-form').submit(function(e) {
+                e.preventDefault();
+                
+                const verificationType = $('#verification_type').val();
+                const searchValue = $('#search-input').val().trim();
+                
+                if (!searchValue) {
+                    alert('Please enter a valid email or Telegram ID');
+                    return;
+                }
+                
+                // Here you would typically make an AJAX call to your backend
+                console.log(`Verification type: ${verificationType}, Search value: ${searchValue}`);
+                
+                // For demo purposes, we'll just show an alert
+                alert(`Verification request submitted!\nType: ${verificationType.toUpperCase()}\nID: ${searchValue}`);
+                
+                // In a real implementation, you would redirect or show results here
+                // window.location.href = `/verify?type=${verificationType}&id=${encodeURIComponent(searchValue)}`;
+            });
+        });
+    </script>
 </body>
-
 </html>

@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZA Ventures - We Take You to Great Heights in the Future</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="assets/css/output.css">
+</head>
+<body data-scroll-container>
+
+  <div id="loader" class="fixed top-0 left-0 bg-[#D3D3FF] z-[9999] flex flex-col justify-between py-4 px-3 text-dark h-svh w-full opacity-0 invisible">
+    <div class="flex lg:flex-row flex-col relative top-1 justify-between xxs:text-base lg:text-2xl leading-relaxed font-semibold opacity-0 md:opacity-100 invisible md:visible">
+      <div id="percentage">0%</div>
+      <p class="max-w-[500px] text-end">
+        Welcome to Aza Ventures, your trusted partner in the dynamic world of cryptocurrency investments.
+      </p>
+    </div>
+    <div class="h-auto w-full flex items-center justify-center md:hidden">
+      <!-- <div class="relative w-full h-1.5 bg-dark/30 rounded-full overflow-hidden loader-bar"></div> -->
+      <img src="assets/img/aza-ventures-logo.png" alt="aza.ventures" class="w-20 h-auto object-contain animate-[blink_1s_steps(2,start)_infinite]">
+    </div>
+    <div class="overflow-hidden whitespace-nowrap opacity-0 md:opacity-100 invisible md:visible">
+      <div id="marquee" class="flex gap-16 will-change-transform xxs:text-2xl lg:text-10xl font-bold text-dark uppercase marquee-item">
+        <div>Loading</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden md:block">
+    <div class="absolute top-[-34%] right-[20%] w-[199px] h-[496px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+      <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+    </div>
+
+    <div class="absolute top-[-40%] left-[37%] w-[199px] h-[685px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+      <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+    </div>
+
+    <div class="absolute top-[-18%] left-[28%] w-[199px] h-[496px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+      <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+    </div>
+
+    <div class="absolute top-[-34%] left-[6%] w-[199px] h-[496px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+      <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-5 right-5 flex whatsapp-icon z-50">
+    <a href="https://wa.me/919531803915" target="_blank" class="w-16 h-16 flex items-center justify-center bg-[#25C761] rounded-full">
+      <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff"><path d="M7.25361 18.4944L7.97834 18.917C9.18909 19.623 10.5651 20 12.001 20C16.4193 20 20.001 16.4183 20.001 12C20.001 7.58172 16.4193 4 12.001 4C7.5827 4 4.00098 7.58172 4.00098 12C4.00098 13.4363 4.37821 14.8128 5.08466 16.0238L5.50704 16.7478L4.85355 19.1494L7.25361 18.4944ZM2.00516 22L3.35712 17.0315C2.49494 15.5536 2.00098 13.8345 2.00098 12C2.00098 6.47715 6.47813 2 12.001 2C17.5238 2 22.001 6.47715 22.001 12C22.001 17.5228 17.5238 22 12.001 22C10.1671 22 8.44851 21.5064 6.97086 20.6447L2.00516 22ZM8.39232 7.30833C8.5262 7.29892 8.66053 7.29748 8.79459 7.30402C8.84875 7.30758 8.90265 7.31384 8.95659 7.32007C9.11585 7.33846 9.29098 7.43545 9.34986 7.56894C9.64818 8.24536 9.93764 8.92565 10.2182 9.60963C10.2801 9.76062 10.2428 9.95633 10.125 10.1457C10.0652 10.2428 9.97128 10.379 9.86248 10.5183C9.74939 10.663 9.50599 10.9291 9.50599 10.9291C9.50599 10.9291 9.40738 11.0473 9.44455 11.1944C9.45903 11.25 9.50521 11.331 9.54708 11.3991C9.57027 11.4368 9.5918 11.4705 9.60577 11.4938C9.86169 11.9211 10.2057 12.3543 10.6259 12.7616C10.7463 12.8783 10.8631 12.9974 10.9887 13.108C11.457 13.5209 11.9868 13.8583 12.559 14.1082L12.5641 14.1105C12.6486 14.1469 12.692 14.1668 12.8157 14.2193C12.8781 14.2457 12.9419 14.2685 13.0074 14.2858C13.0311 14.292 13.0554 14.2955 13.0798 14.2972C13.2415 14.3069 13.335 14.2032 13.3749 14.1555C14.0984 13.279 14.1646 13.2218 14.1696 13.2222V13.2238C14.2647 13.1236 14.4142 13.0888 14.5476 13.097C14.6085 13.1007 14.6691 13.1124 14.7245 13.1377C15.2563 13.3803 16.1258 13.7587 16.1258 13.7587L16.7073 14.0201C16.8047 14.0671 16.8936 14.1778 16.8979 14.2854C16.9005 14.3523 16.9077 14.4603 16.8838 14.6579C16.8525 14.9166 16.7738 15.2281 16.6956 15.3913C16.6406 15.5058 16.5694 15.6074 16.4866 15.6934C16.3743 15.81 16.2909 15.8808 16.1559 15.9814C16.0737 16.0426 16.0311 16.0714 16.0311 16.0714C15.8922 16.159 15.8139 16.2028 15.6484 16.2909C15.391 16.428 15.1066 16.5068 14.8153 16.5218C14.6296 16.5313 14.4444 16.5447 14.2589 16.5347C14.2507 16.5342 13.6907 16.4482 13.6907 16.4482C12.2688 16.0742 10.9538 15.3736 9.85034 14.402C9.62473 14.2034 9.4155 13.9885 9.20194 13.7759C8.31288 12.8908 7.63982 11.9364 7.23169 11.0336C7.03043 10.5884 6.90299 10.1116 6.90098 9.62098C6.89729 9.01405 7.09599 8.4232 7.46569 7.94186C7.53857 7.84697 7.60774 7.74855 7.72709 7.63586C7.85348 7.51651 7.93392 7.45244 8.02057 7.40811C8.13607 7.34902 8.26293 7.31742 8.39232 7.30833Z"></path></svg>
+    </a>
+  </div>
+  <header id="mainHeader" class="fixed top-4 left-1/2 !-translate-x-1/2 z-[100] rounded-[16px] overflow-hidden backdrop-blur-[20px] mx-auto transition-transform duration-700 md:p-0 md:overflow-hidden md:w-auto w-[calc(100%-24px)]">
+    <div class="flex items-center justify-between gap-10 bg-white bg-opacity-50 p-1 pl-4 rounded-[16px]">
+      <div class="relative">
+        <a href="/" class="flex items-center gap-4 min-w-[194px]">
+          <img class="w-10 h-auto object-contain" src="assets/img/aza-ventures-logo.png" alt="aza.ventures">
+          <img class="max-w-none w-[137px] h-auto" src="assets/img/logo-header.png" alt="aza.ventures">
+        </a>
+      </div>
+      <div class="relative md:flex hidden">
+        <ul class="flex items-center gap-1">
+          <li>
+            <a href="/" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap hover:text-dark hover:opacity-50 transition duration-300">Home</a>
+          </li>
+          <li>
+            <a href="partners.html" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap hover:text-dark hover:opacity-50 transition duration-300">Partners</a>
+          </li>
+          <li>
+            <a href="investor.html" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap hover:text-dark hover:opacity-50 transition duration-300">Investor</a>
+          </li>
+          <li>
+            <a href="portfolio.html" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap hover:text-dark hover:opacity-50 transition duration-300">Portfolio</a>
+          </li>
+        </ul>
+      </div>
+      <div class="hidden md:flex">
+        <a href="contact.html" class="flex items-center gap-2 bg-primary text-dark border-b border-b-[rgba(30,41,57,0.25)] text-sm leading-[21px] font-semibold whitespace-nowrap py-[7px] px-3 rounded-xl hover:bg-dark hover:text-light transition duration-300">
+          Pitch Us
+        </a>
+      </div>
+      <button id="burgerToggle" class="md:hidden block p-2">
+        <svg class="w-6 h-6 text-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+  <div id="mobileMenu" class="fixed top-20 rounded-[16px] w-[calc(100%-24px)] z-[999] overflow-hidden transform -translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+    <div class="p-6 bg-white bg-opacity-50 backdrop-blur-[20px]">
+      <button id="closeMenu" class="mb-6">
+        <svg class="w-6 h-6 text-[#1e2939]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <ul class="space-y-4">
+        <li><a href="/" class="block text-base font-normal text-dark whitespace-nowrap">Home</a></li>
+        <li>
+          <a href="partners.html" class="block text-base font-normal text-dark whitespace-nowrap">
+            Partners
+          </a>
+        </li>
+        <li>
+          <a href="investor.html" class="block text-base font-normal text-dark whitespace-nowrap">
+            Investor
+          </a>
+        </li>
+        <li><a href="portfolio.html" class="block text-base font-normal text-dark whitespace-nowrap">Portfolio</a></li>
+        <li>
+          <a href="contact.html" class="inline-block mt-4 bg-primary text-dark border-b border-b-[rgba(30,41,57,0.25)] text-sm leading-[21px] font-semibold py-[7px] px-3 rounded-xl hover:bg-dark hover:text-light transition duration-300">
+            Pitch Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="relative" data-scroll-section>
+    <div class="container">
+      <div class="pt-[125px] pb-[128px] mx-auto text-center relative z-20">
+        <h1 id="animatedHeading" class="heading-line xxs:text-3xl xxs:leading-[34px] xs:text-5xl xs:leading-[52px] md:text-6xl md:leading-[60px] lg:text-7xl lg:leading-[105%] font-semibold lg:tracking-[-4px] text-dark inline">
+          Backing the Bold. <br>
+          <span class="xxs:text-4xl xxs:leading-[36px] xs:text-6xl xs:leading-[52px] md:text-6xl md:leading-[60px] lg:!text-[80px] lg:leading-[105%] font-serif font-normal">Building the Future.</span>
+        </h1>
+        <p class="font-sora pt-[32px] pb-[40px] max-w-[540px] w-full mx-auto">
+          We partner with visionary founders to transform the Web3 ecosystem. If you're building the next big thing in blockchain,
+          we're here to help you grow.
+        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+          <div class="flex">
+            <a href="#" class="flex items-center gap-2 bg-dark group-hover:text-primary btn-icon-reveal text-light text-base leading-8 font-semibold py-12 px-16 rounded-[32px] animated-button relative group overflow-hidden" data-text="Pitch Your Startup" data-animated-button>
+              <span class="hover-circle absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-primary transform -translate-x-1/2 -translate-y-1/2 scale-0 pointer-events-none transition-transform duration-500 group-hover:duration-1000 ease-out group-hover:scale-[4] z-0"></span>
+              <span class="animated-text relative flex items-center overflow-hidden z-10 leading-relaxed group-hover:text-dark transition-colors duration-500">Pitch Your Startup</span>
+              <div class="relative z-10 overflow-hidden transition-all duration-500 w-8 h-8 group-hover:text-dark">
+                <svg class="btn-icon w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></svg>
+              </div>
+            </a>
+          </div>
+          <div class="flex">
+            <a href="#" class="flex items-center gap-2 bg-[rgba(240,240,255,0.5)] group-hover:text-primary btn-icon-reveal text-dark border-b border-b-[rgba(30,41,57,0.25)] backdrop-blur-[30px] text-base leading-8 font-semibold py-12 px-16 rounded-[32px] animated-button relative group overflow-hidden" data-text="Explore Our Portfolio" data-animated-button>
+              <span class="hover-circle absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-primary transform -translate-x-1/2 -translate-y-1/2 scale-0 pointer-events-none transition-transform duration-500 group-hover:duration-1000 ease-out group-hover:scale-[4] z-0"></span>
+              <span class="animated-text relative flex items-center overflow-hidden z-10 leading-relaxed group-hover:text-dark transition-colors duration-500"> Explore Our Portfolio </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full z-10 2xl:max-w-[1440px]">
+        <img class="w-full h-full object-cover" src="assets/img/Web3.png" alt="web3">
+      </div> -->
+    </div>
+  </section>
+
+  <section class="relative" data-scroll-section>
+    <div class="container">
+      <div class="absolute inset-0 hidden lg:flex items-center justify-center z-0">
+        <img src="assets/img/globe-image.png" alt="Network Globe" id="globeImage" class="w-[630px] h-[630px] opacity-10 absolute z-0 pointer-events-none" data-scroll>
+        <img src="assets/img/aza-ventures-logo.png" alt="aza Ventures Logo" class="w-28 md:w-32 absolute z-10 pointer-events-none">
+      </div>
+      <div class="relative z-20 grid grid-cols-1 lg:grid-cols-3 grid-rows-none lg:grid-rows-3 gap-y-6 lg:gap-y-32 place-items-center">
+        <div class="lg:col-start-2 lg:row-start-1 bg-primary rounded-xl p-6 text-center w-full blur-up" data-delay="0.2">
+          <p class="xxs:text-4xl xxs:leading-[34px] lg:text-4.5xl lg:leading-[42px] xl:text-[44px] xl:leading-[50px] font-semibold">70+</p>
+          <p class="xxs:text-4.5xl xxs:leading-[44px] lg:text-5xl lg:leading-[52px] xl:text-[52px] xl:leading-[60px] font-serif font-normal">Startups Funded</p>
+        </div>
+        <div class="lg:col-start-1 lg:row-start-2 bg-primary rounded-xl p-6 text-center w-full blur-up" data-delay="0.2">
+          <p class="xxs:text-4xl xxs:leading-[34px] lg:text-4.5xl lg:leading-[42px] xl:text-[44px] xl:leading-[50px] font-semibold">$100M+</p>
+          <p class="xxs:text-4.5xl xxs:leading-[44px] lg:text-5xl lg:leading-[52px] xl:text-[52px] xl:leading-[60px] font-serif font-normal">Assets Under <br class="lg:block xxs:hidden"> Management</p>
+        </div>
+        <div class="lg:col-start-3 lg:row-start-2 bg-primary rounded-xl p-6 text-center w-full blur-up" data-delay="0.2">
+          <p class="xxs:text-4xl xxs:leading-[34px] lg:text-4.5xl lg:leading-[42px] xl:text-[44px] xl:leading-[50px] font-semibold">20K+</p>
+          <p class="xxs:text-4.5xl xxs:leading-[44px] lg:text-5xl lg:leading-[52px] xl:text-[52px] xl:leading-[60px] font-serif font-normal">Community <br class="lg:block xxs:hidden"> Members</p>
+        </div>
+        <div class="lg:col-start-2 lg:row-start-3 bg-primary rounded-xl p-6 text-center w-full blur-up" data-delay="0.2">
+          <p class="xxs:text-4xl xxs:leading-[34px] lg:text-4.5xl lg:leading-[42px] xl:text-[44px] xl:leading-[50px] font-semibold">Since</p>
+          <p class="xxs:text-4.5xl xxs:leading-[44px] lg:text-5xl lg:leading-[52px] xl:text-[52px] xl:leading-[60px] font-serif font-normal">2021</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative my-40 overflow-hidden" data-scroll-section>
+    <div class="container">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:!text-[44px] font-semibold text-dark inline-block">
+          Trusted by <br>
+            <span class="xxs:text-4.5xl lg:text-5xl xl:!text-[52px] font-serif font-normal block">Industry Titans</span>
+        </h2>
+      </div>
+      <div id="marquee4" class="mt-12 flex items-center gap-6 fade-up will-change-transform">
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[200px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+      </div>
+    </div>  
+  </section>
+
+  <section class="relative py-40 mt-40 bg-primary overflow-hidden" data-scroll-section>
+    <div class="container">
+      <div class="max-w-[1080px] mx-auto text-start">
+        <h2 class="xxs:text-4.5xl lg:text-5xl xl:text-[52px] font-serif text-dark inline-block blur-up" data-scroll data-scroll-speed="1" data-delay="0.5">
+          AZA Ventures is an advisory and investment firm 
+          <span class="xxs:text-4xl lg:text-4.5xl xl:text-[44px] font-sora font-semibold">
+            started in 2021 and specializing in early-stage crypto projects, we bring a wealth of experience and a robust network to the table.
+          </span>
+        </h2>
+      </div>
+      <div class="max-w-7xl mx-auto mt-16 grid gap-6 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+        <div class="bg-tertiary rounded-[32px] text-center py-6 px-8 fade-up" data-delay="0.3">
+          <h2 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+              Smart <br>
+              <span class="text-4.5xl font-serif font-normal">
+              Capital
+              </span>
+          </h2>
+          <p class="text-base text-[#1e2939] my-4">
+            We provide early funding designed for Web3 speed — no red tape, just belief.
+          </p>
+          <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+            <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><circle cx="128" cy="128" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="16" y="64" width="224" height="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M240,104a48.85,48.85,0,0,1-40-40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,192a48.85,48.85,0,0,1,40-40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M16,152a48.85,48.85,0,0,1,40,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M56,64a48.85,48.85,0,0,1-40,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+          </div>
+        </div>
+        <div class="bg-tertiary rounded-[32px] text-center py-6 px-8 fade-up" data-delay="0.6">
+          <h2 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+              Strategic <br>
+              <span class="text-4.5xl font-serif font-normal">
+              Support
+              </span>
+          </h2>
+          <p class="text-base text-[#1e2939] my-4">
+            From tokenomics to scaling, our team is hands-on with every founder we back.
+          </p>
+          <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+            <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><line x1="128" y1="232" x2="128" y2="200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="24" x2="128" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="24" y1="128" x2="56" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="232" y1="128" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+          </div>
+        </div>
+        <div class="bg-tertiary rounded-[32px] text-center py-6 px-8 fade-up" data-delay="0.9">
+          <h2 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+              Partner <br>
+              <span class="text-4.5xl font-serif font-normal">
+              building
+              </span>
+          </h2>
+          <p class="text-base text-[#1e2939] my-4">
+            From tokenomics to scaling, our team is hands-on with every founder we back.
+          </p>
+          <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+            <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,128c0,64-40,96-40,96s-40-32-40-96,40-96,40-96S168,64,168,128Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="96" x2="218.54" y2="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="160" x2="218.54" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative mt-40 blur-up hidden" data-scroll data-scroll-speed="2">
+      <div id="marquee1" class="flex gap-10 lg:gap-20 w-max will-change-transform">
+        <img src="assets/img/AZAVentures-full-image.png" alt="AZAVentures" class="marquee-img xxs:h-16 lg:h-32 w-auto object-contain shrink-0" />
+      </div>
+    </div>
+  </section>
+
+  <div class="pb-40 bg-gradient-sections" data-scroll-section>
+    <section class="relative">
+      <div class="container">
+        <div class="max-w-[1080px] mx-auto mb-16 text-center">
+          <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-[44px] font-semibold text-dark inline-block">
+            More Than Capital: Your Gateway <br>
+            <span class="xxs:text-4.5xl lg:text-5xl xl:text-[52px] font-serif font-normal block">to the Web3 Network Growth</span>
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="flex flex-col justify-between text-center gap-4 bg-tertiary py-6 px-8 fade-up rounded-3xl overflow-hidden">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                VC
+                <span class="text-4xl font-serif font-normal">
+                  Partners
+                </span>
+              </h2>
+              <p class="text-base leading-[160%] font-sora text-dark">
+                We work with top-tier venture capital firms that offer more than funding — bringing strategic insight, credibility, and long-term support to amplify success.
+              </p>
+            </div>
+            <div class="network-card-content relative">
+              <div id="network-marquee1" class="w-full flex items-center gap-6 will-change-transform">
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between text-center gap-4 bg-tertiary py-6 px-8 fade-up rounded-3xl overflow-hidden">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                KOL
+                <span class="text-4xl font-serif font-normal">
+                  Partners
+                </span>
+              </h2>
+              <p class="text-base leading-[160%] font-sora text-dark">
+                Our global network of trusted Key Opinion Leaders drives awareness, trust, and community growth through storytelling and targeted outreach.
+              </p>
+            </div>
+            <div class="network-card-content relative">
+              <div id="network-marquee2" class="w-full flex items-center gap-6 will-change-transform">
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between text-center gap-4 bg-tertiary py-6 px-8 fade-up rounded-3xl overflow-hidden">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                MM
+                <span class="text-4xl font-serif font-normal">
+                  Partners
+                </span>
+              </h2>
+              <p class="text-base leading-[160%] font-sora text-dark">
+                With our Market Maker partners, we ensure healthy liquidity, tighter spreads, and improved token performance across major exchanges.
+              </p>
+            </div>
+            <div class="network-card-content relative">
+              <div id="network-marquee3" class="w-full flex items-center gap-6 will-change-transform">
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between text-center gap-4 bg-tertiary py-6 px-8 fade-up rounded-3xl overflow-hidden">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                CEX
+                <span class="text-4xl font-serif font-normal">
+                  Partners
+                </span>
+              </h2>
+              <p class="text-base leading-[160%] font-sora text-dark">
+                Our relationships with Centralized Exchanges enable streamlined listings, strategic support, and high visibility for your token.
+              </p>
+            </div>
+            <div class="network-card-content relative">
+              <div id="network-marquee4" class="w-full flex items-center gap-6 will-change-transform">
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between text-center gap-4 bg-tertiary py-6 px-8 fade-up rounded-3xl overflow-hidden">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                Project
+                <span class="text-4xl font-serif font-normal">
+                  Partners
+                </span>
+              </h2>
+              <p class="text-base leading-[160%] font-sora text-dark">
+                We collaborate with cutting-edge projects to enable knowledge-sharing, ecosystem growth, and cross-utility opportunities.
+              </p>
+            </div>
+            <div class="network-card-content relative">
+              <div id="network-marquee5" class="w-full flex items-center gap-6 will-change-transform">
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col justify-between text-center gap-4 bg-tertiary py-6 px-8 fade-up rounded-3xl overflow-hidden">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                Launchpad
+                <span class="text-4xl font-serif font-normal">
+                  Partners
+                </span>
+              </h2>
+              <p class="text-base leading-[160%] font-sora text-dark">
+                Through our Launchpad network, we secure strong retail exposure and hype-generation channels to power impactful token launches.
+              </p>
+            </div>
+            <div class="network-card-content relative">
+              <div id="network-marquee6" class="w-full flex items-center gap-6 will-change-transform">
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+                <div class="flex items-center justify-center w-[128px] h-[64px] py-3.5 shrink-0">
+                  <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-full w-full object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative mb-40 hidden">
+      <div class="container">
+        <div class="max-w-[1080px] mx-auto text-center">
+          <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-9xl font-semibold text-dark inline-block">
+            In a sea of noise, <br>
+            <span class="xxs:text-4.5xl lg:text-5xl xl:text-10xl font-serif font-normal block">we listen.</span>
+          </h2>
+        </div>
+        <div class="relative mt-16 blur-up">
+            <div class="overflow-hidden rounded-[48px] w-full h-auto lg:h-[360px]">
+              <video
+                id="heroVideo"
+                src="assets/videos/video1.mp4"
+                class="w-full h-full object-cover will-change-transform"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="relative mt-16 mb-40 hidden">
+      <div class="container">
+        <div class="max-w-[1000px] mx-auto text-center">
+          <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-9xl font-semibold text-dark inline-block">
+            In a space <br>
+            full of promises, <br>
+            <span class="xxs:text-4.5xl lg:text-5xl xl:text-10xl font-serif font-normal block">we deliver.</span>
+          </h2>
+        </div>
+        <div class="relative mt-16 blur-up">
+            <div class="overflow-hidden rounded-[48px] w-full h-auto lg:h-[360px]">
+              <video
+                id="heroVideo"
+                src="assets/videos/video2.mp4"
+                class="w-full h-full object-cover will-change-transform"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="relative hidden">
+      <div class="container">
+        <div class="max-w-[900px] mx-auto text-center">
+          <h2 class="split-heading xxs:text-3xl lg:text-4xl xl:text-5xl font-semibold text-dark inline-block">
+            AZA Ventures is the kind of partner who earns your trust through action, <br>
+              <span class="xxs:text-4xl lg:text-5xl xl:text-7xl font-serif font-normal block">not just capital.</span>
+          </h2>
+          <!-- <h2 class="split-heading text-5xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            AZA Ventures is the kind of partner who earns your trust through action, <br>
+              <span class="text-7xl font-serif font-normal">
+               not just capital.
+              </span>
+          </h2> -->
+        </div>
+        <div class="flex flex-col gap-y-6 mt-16">
+          <div class="w-full flex-zero-zeor-auto fade-up" data-delay="0.2">
+            <div class="flex lg:flex-row flex-col items-center justify-between gap-x-4 bg-primary rounded-[48px] px-8 py-6">
+              <div class="flex items-start gap-x-6 lg:flex-row flex-col lg:items-center lg:mb-0 mb-4 lg:w-auto w-full">
+                <div class="flex items-center justify-center text-center lg:mx-auto w-32 h-32">
+                  <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><path d="M88,136a40,40,0,1,1-40,40v-6.73" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,136a40,40,0,1,0,40,40v-6.73" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M72,172H64A48,48,0,0,1,48,78.73V72a40,40,0,0,1,80,0V176" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M184,172h8a48,48,0,0,0,16-93.27V72a40,40,0,0,0-80,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,112h-4a28,28,0,0,1-28-28V80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M56,112h4A28,28,0,0,0,88,84V80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Founder-First <br>
+                      <span class="text-4.5xl font-serif font-normal">Thinking</span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-dark leading-[1.6]">
+                  We move fast and back conviction over credentials. We believe great 
+                  founders can come from anywhere — with or without a Stanford 
+                  degree or a Y Combinator badge.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex-zero-zeor-auto fade-up" data-delay="0.2">
+            <div class="flex lg:flex-row flex-col items-center justify-between gap-x-4 bg-primary rounded-[48px] px-8 py-6">
+              <div class="flex items-start gap-x-6 lg:flex-row flex-col lg:items-center lg:mb-0 mb-4 lg:w-auto w-full">
+                <div class="flex items-center justify-center text-center lg:mx-auto w-32 h-32">
+                  <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,128c0,64-40,96-40,96s-40-32-40-96,40-96,40-96S168,64,168,128Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="96" x2="218.54" y2="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="160" x2="218.54" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Web3-Native <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                        Builders
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-dark leading-[1.6]">
+                   Our team lives and breathes crypto — not just as investors, but as builders, 
+                   contributors, and early adopters. We understand the protocols, 
+                   the communities, and the code.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex-zero-zeor-auto fade-up" data-delay="0.2">
+           <div class="flex lg:flex-row flex-col items-center justify-between gap-x-4 bg-primary rounded-[48px] px-8 py-6">
+              <div class="flex items-start gap-x-6 lg:flex-row flex-col lg:items-center lg:mb-0 mb-4 lg:w-auto w-full">
+                <div class="flex items-center justify-center text-center lg:mx-auto w-32 h-32">
+                  <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><polyline points="200 152 160 192 96 176 40 136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="72.68 70.63 128 56 183.32 70.63" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M34.37,60.42,8.85,111.48a8,8,0,0,0,3.57,10.73L40,136,72.68,70.63,45.11,56.85A8,8,0,0,0,34.37,60.42Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M216,136l27.58-13.79a8,8,0,0,0,3.57-10.73L221.63,60.42a8,8,0,0,0-10.74-3.57L183.32,70.63Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M184,72H144L98.34,116.29a8,8,0,0,0,1.38,12.42C117.23,139.9,141,139.13,160,120l40,32,16-16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="124.06 216 82.34 205.57 56 186.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Long-Term <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                        Allies
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-dark leading-[1.6]">
+                  We move fast and back conviction over credentials. We believe great 
+                  founders can come from anywhere — with or without a Stanford 
+                  degree or a Y Combinator badge.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex-zero-zeor-auto fade-up" data-delay="0.2">
+            <div class="flex lg:flex-row flex-col items-center justify-between gap-x-4 bg-primary rounded-[48px] px-8 py-6">
+              <div class="flex items-start gap-x-6 lg:flex-row flex-col lg:items-center lg:mb-0 mb-4 lg:w-auto w-full">
+                <div class="flex items-center justify-center text-center lg:mx-auto w-32 h-32">
+                  <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><path d="M191.11,112.89c24-24,25.5-52.55,24.75-65.28a8,8,0,0,0-7.47-7.47c-12.73-.75-41.26.73-65.28,24.75L80,128l48,48Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M136,72H74.35a8,8,0,0,0-5.65,2.34L34.35,108.69a8,8,0,0,0,4.53,13.57L80,128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M184,120v61.65a8,8,0,0,1-2.34,5.65l-34.35,34.35a8,8,0,0,1-13.57-4.53L128,176" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M94.56,187.82C90.69,196.31,77.65,216,40,216c0-37.65,19.69-50.69,28.18-54.56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Real-World <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                        Outcomes
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-dark leading-[1.6]">
+                  We move fast and back conviction over credentials. We believe great 
+                  founders can come from anywhere — with or without a Stanford 
+                  degree or a Y Combinator badge.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-16 fade-up hidden">
+      <div class="container">
+        <div class="flex items-center gap-6 max-w-[950px] mx-auto">
+          <i class="ph-fill ph-quotes text-[128px] text-secondary lg:block hidden"></i>
+          <div class="flex-1 flex flex-col items-center gap-6">
+            <h2 class="xxs:text-2xl md:text-3xl xl:text-4xl font-semibold text-center inline-block tracking-[-0.01em]">
+              “AZA’s speed and support changed <br class="lg:block hidden"> our trajectory. They believed early and stayed involved.”
+            </h2>
+            <div class="flex items-center gap-4">
+              <a href="" class="flex items-center gap-4">
+                <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img2.jpg" alt="profile-image">
+                <div class="flex flex-col items-start gap-1">
+                  <h2 class="text-base font-sora font-semibold text-dark">Luca Moreau</h2>
+                  <p class="text-base font-sora text-dark/50">Founder of NuLink</p>
+                </div>
+              </a>
+              <a href="" class="flex">
+                <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo2.png" alt="review-logo-image">
+              </a>
+            </div>
+          </div>
+          <i class="ph-fill ph-quotes text-[128px] text-secondary lg:block hidden"></i>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="relative mb-40 overflow-hidden" data-scroll-section>
+    <div class="container">
+      <div class="max-w-6xl mx-auto text-center">
+         <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-5xl font-semibold text-dark inline-block">
+            Startups We’ve Backed <br>
+            <span class="xxs:text-4.5xl lg:text-5xl xl:text-6xl font-serif font-normal block">Industry Titans</span>
+        </h2>
+      </div>
+      <div id="marquee5" class="mt-12 flex items-center gap-6 fade-up">
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-[245px] h-[100px] shrink-0">
+          <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+      </div>
+    </div>  
+  </section>
+
+  <section class="relative my-32" data-scroll-section>
+    <div class="container">
+      <div class="max-w-6xl mx-auto text-center mb-16">
+        <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-5xl font-semibold text-dark inline-block">
+          The Team Who Backs You <br>
+          <span class="xxs:text-4.5xl lg:text-5xl xl:text-6xl font-serif font-normal block">Like Co-Founders</span>
+       </h2>
+     </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center justify-center bg-[#1E2939] rounded-3xl p-12">
+          <img class="w-full h-auto object-contain" src="assets/img/team-img1.png" alt="team-image">
+        </div>
+        <div class="flex flex-col gap-1">
+          <h3 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            Waseem
+          </h3>
+          <div class="flex items-center flex-wrap gap-2 justify-between">
+            <p class="text-lg sm:text-2xl font-normal bg-gradient-text bg-clip-text text-transparent inline-block">
+              CEO
+            </p>
+            <div class="flex items-center flex-wrap gap-4">
+              <a href="https://x.com/Aza_Enterprises" target="_blank" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">X</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://t.me/Aza_Ventures" target="_blank" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">Telegram</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://www.linkedin.com/in/aza-waseem/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">LinkedIn</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://www.instagram.com/azagroups" target="_blank" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center justify-center bg-[#1E2939] rounded-3xl p-12">
+          <img class="w-full h-auto object-contain" src="assets/img/team-img1.png" alt="team-image">
+        </div>
+        <div class="flex flex-col gap-1">
+          <h3 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            Sohail
+          </h3>
+          <div class="flex items-center justify-between">
+            <p class="text-lg sm:text-2xl font-normal bg-gradient-text bg-clip-text text-transparent inline-block">
+              COO
+            </p>
+            <div class="hidden items-center gap-4">
+              <a href="https://x.com/Aza_Enterprises" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">X</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://t.me/Aza_Ventures" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">Telegram</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://www.linkedin.com/in/aza-waseem/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-6">
+        <div class="flex items-center justify-center bg-[#1E2939] rounded-3xl p-12">
+          <img class="w-full h-auto object-contain" src="assets/img/team-img1.png" alt="team-image">
+        </div>
+        <div class="flex flex-col gap-1">
+          <h3 class="text-2xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            Ayoub Waseem
+          </h3>
+          <div class="flex items-center justify-between">
+            <p class="text-lg sm:text-2xl font-normal bg-gradient-text bg-clip-text text-transparent inline-block">
+              Business Head
+            </p>
+            <div class="hidden items-center gap-4">
+              <a href="https://x.com/Aza_Enterprises" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">X</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://t.me/Aza_Ventures" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">Telegram</a>
+              <span class="w-1 h-1 rounded-full bg-[#1E2939]/50"></span>
+              <a href="https://www.linkedin.com/in/aza-waseem/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-base leading-[160%] tracking-tighter font-normal text-[#1E2939]">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+  </section>
+
+  <!-- <section class="review-sec relative my-40" data-scroll-section>
+    <div class="container">
+      <div class="max-w-[900px] mx-auto mb-16 text-center">
+        <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-5xl font-semibold text-dark inline-block">
+          Why Founders Trust AZA <br>
+            <span class="xxs:text-4.5xl lg:text-5xl xl:text-6xl font-serif font-normal block">In Their Own Words</span>
+        </h2>
+      </div>
+      <div class="swiper mySwiper fade-up">
+        <div class="swiper-wrapper mb-6">
+          <div class="swiper-slide">
+            <div class="flex flex-col gap-8 bg-dark rounded-[48px] p-8 max-w-[870px] mx-auto">
+              <h2 class="xxs:text-lg md:text-3xl lg:text-4xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+                “Most investors say they’re Web3-native. AZA actually is. From tokenomics to governance structure, they asked better questions than anyone else we spoke to.”
+              </h2>
+              <div class="flex lg:flex-row flex-col lg:items-center gap-8 lg:gap-4">
+                <a href="" class="flex items-center gap-4">
+                  <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img3.jpg" alt="profile-image">
+                  <div class="flex flex-col items-start gap-1">
+                    <h2 class="text-base font-sora font-semibold text-tertiary">Darius Okafor</h2>
+                    <p class="text-base font-sora text-tertiary/50">Founder of NovaGuild</p>
+                  </div>
+                </a>
+                <a href="" class="flex">
+                  <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo.png" alt="review-logo-image">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="flex flex-col gap-8 bg-dark rounded-[48px] p-8 max-w-[870px] mx-auto">
+              <h2 class="xxs:text-lg md:text-3xl lg:text-4xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+                “Most investors say they’re Web3-native. AZA actually is. From tokenomics to governance structure, they asked better questions than anyone else we spoke to.”
+              </h2>
+             <div class="flex lg:flex-row flex-col lg:items-center gap-4">
+                <a href="" class="flex items-center gap-4">
+                  <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img3.jpg" alt="profile-image">
+                  <div class="flex flex-col items-start gap-1">
+                    <h2 class="text-base font-sora font-semibold text-tertiary">Darius Okafor</h2>
+                    <p class="text-base font-sora text-tertiary/50">Founder of NovaGuild</p>
+                  </div>
+                </a>
+                <a href="" class="flex">
+                  <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo.png" alt="review-logo-image">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="flex flex-col gap-8 bg-dark rounded-[48px] p-8 max-w-[870px] mx-auto">
+              <h2 class="xxs:text-lg md:text-3xl lg:text-4xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+                “Most investors say they’re Web3-native. AZA actually is. From tokenomics to governance structure, they asked better questions than anyone else we spoke to.”
+              </h2>
+              <div class="flex lg:flex-row flex-col lg:items-center gap-4">
+                <a href="" class="flex items-center gap-4">
+                  <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img3.jpg" alt="profile-image">
+                  <div class="flex flex-col items-start gap-1">
+                    <h2 class="text-base font-sora font-semibold text-tertiary">Darius Okafor</h2>
+                    <p class="text-base font-sora text-tertiary/50">Founder of NovaGuild</p>
+                  </div>
+                </a>
+                <a href="" class="flex">
+                  <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo.png" alt="review-logo-image">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden lg:flex items-center justify-between w-full absolute top-1/2 -translate-y-[calc(50%+24px)] z-10">
+          <div class="swiper-button-prev relative text-sm font-sora font-bold !top-0 !left-0 !right-0 !bottom-0 flex items-center gap-2 py-[9px] px-4 rounded-xl text-[#1E2939] border-b border-[#1E2939]/25 bg-[#F9FAFB] !w-auto !h-auto duration-150 hover:bg-[#FDDC5C] after:hidden">
+            <i class="ph ph-caret-left text-[14px]"></i>
+            Previous
+          </div>
+          <div class="swiper-button-next relative text-sm font-sora font-bold !top-0 !left-0 !right-0 !bottom-0 flex items-center gap-2 py-[9px] px-4 rounded-xl text-[#1E2939] border-b border-[#1E2939]/25 bg-[#F9FAFB] !w-auto !h-auto duration-150 hover:bg-[#FDDC5C] after:hidden">
+            Next
+            <i class="ph ph-caret-right text-[14px]"></i>
+          </div>
+        </div>
+        <div class="swiper-pagination relative !bottom-0 !top-auto flex items-center justify-center gap-2 py-2.5"></div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="relative my-40" data-scroll-section>
+    <div class="container">
+      <div class="relative text-center py-16 rounded-[48px] overflow-hidden">
+        <img src="./assets/img/cta-bg.png" alt="cta-bg" class="absolute inset-0 w-full h-full object-cover">
+        <div class="flex flex-col items-center relative px-3 z-10">
+          <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-5xl font-semibold text-dark inline-block">
+            The AZA Network <br>
+             <span class="xxs:text-4.5xl lg:text-5xl xl:text-6xl font-serif font-normal block">It’s More Than Just Investment</span>
+          </h2>
+          <p class="text-base font-sora pt-[24px] pb-[40px] max-w-[540px] w-full mx-auto text-dark blur-up" data-delay="1">
+            With AZA Ventures, you don’t just get capital; you get access to a community of experts, advisors, and early adopters. Whether it’s marketing, strategy, or partnerships, we’ve got you covered.
+          </p>
+          <a href="" class="flex items-center gap-3 bg-dark rounded-[32px] py-10 px-16 blur-up" data-delay="1">
+            <ul class="hidden lg:flex items-center">
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-light" src="./assets/img/profile-img1.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-light" src="./assets/img/profile-img2.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-light" src="./assets/img/profile-img3.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-light" src="./assets/img/profile-img4.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1395_1679)">
+                  <path d="M24 0C17.6362 0 11.5275 2.53013 7.03125 7.02938C2.53036 11.5304 0.00124676 17.6347 0 24C0 30.3626 2.53125 36.4714 7.03125 40.9706C11.5275 45.4699 17.6362 48 24 48C30.3638 48 36.4725 45.4699 40.9688 40.9706C45.4688 36.4714 48 30.3626 48 24C48 17.6374 45.4688 11.5286 40.9688 7.02938C36.4725 2.53013 30.3638 0 24 0Z" fill="url(#paint0_linear_1395_1679)"/>
+                  <path d="M10.8637 23.7461C17.8612 20.6981 22.5262 18.6885 24.8587 17.7176C31.5262 14.9452 32.9099 14.4637 33.8137 14.4474C34.0124 14.4442 34.4549 14.4933 34.7437 14.7268C34.9837 14.9237 35.0512 15.1899 35.0849 15.3768C35.1149 15.5636 35.1562 15.9892 35.1224 16.3215C34.7624 20.1165 33.1987 29.3257 32.4037 33.5763C32.0699 35.3748 31.4062 35.9778 30.7649 36.0367C29.3699 36.165 28.3124 35.1157 26.9624 34.2311C24.8512 32.8462 23.6587 31.9845 21.6074 30.6333C19.2374 29.0718 20.7749 28.2135 22.1249 26.811C22.4774 26.4438 28.6199 20.8582 28.7362 20.3516C28.7512 20.2882 28.7662 20.052 28.6237 19.9275C28.4849 19.8026 28.2787 19.8453 28.1287 19.8791C27.9149 19.9271 24.5437 22.1576 18.0037 26.5702C17.0474 27.228 16.1812 27.5486 15.4012 27.5317C14.5462 27.5133 12.8962 27.0472 11.6699 26.649C10.1699 26.1603 8.97369 25.902 9.07869 25.0721C9.13119 24.6401 9.72744 24.198 10.8637 23.7461Z" fill="white"/>
+                  </g>
+                  <defs>
+                  <linearGradient id="paint0_linear_1395_1679" x1="2400" y1="0" x2="2400" y2="4800" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#2AABEE"/>
+                  <stop offset="1" stop-color="#229ED9"/>
+                  </linearGradient>
+                  <clipPath id="clip0_1395_1679">
+                  <rect width="48" height="48" fill="white"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              </li>
+            </ul>
+            <p class="flex items-center gap-2 text-base font-sora font-bold text-light">
+              Join 20K+ Community
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1395_1683)">
+                <path d="M8 24L24 8" stroke="#E6E6FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 8H24V21" stroke="#E6E6FA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_1395_1683">
+                <rect width="32" height="32" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>                            
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark main-footer" data-scroll-section>
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 py-32">
+        <div class="lg:col-span-5 flex flex-col justify-between gap-8">
+          <div class="flex flex-col">
+            <div class="flex">
+              <a href="/" class="block">
+                <img class="max-w-none w-[137px] h-auto" src="assets/img/AZAVentures-full-image2.png" alt="aza.ventures">
+              </a>
+            </div>
+            <h2 class="split-heading xxs:text-4xl lg:text-4.5xl xl:text-5xl font-semibold text-light inline-block my-8">
+              Build Bold. Scale Fast. <br>
+              <span class="xxs:text-4.5xl lg:text-5xl xl:text-6xl font-serif font-normal block">Let’s Shape the Future of Web3.</span>
+            </h2>
+            <p class="font-sora text-tertiary blur-up mb-8" data-delay="0.5">
+              If you’re a bold founder with a vision for the decentralized future, we’d love to hear from you.
+            </p>
+            <div class="flex items-center gap-6">
+              <a href="https://x.com/Aza_Enterprises" target="_blank" class="footer-icon">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.0884 14.651L15.8501 21H22.8501L14.9918 10.5223L21.5309 3H18.8809L13.7644 8.88578L9.3501 3H2.3501L9.86096 13.0145L2.91925 21H5.56927L11.0884 14.651ZM16.8501 19L6.3501 5H8.3501L18.8501 19H16.8501Z" fill="#1E2939"/>
+                </svg>            
+              </a>
+              <a href="" class="footer-icon">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.5036 5.33716C18.1346 4.71103 16.6807 4.2547 15.1631 4C14.9721 4.32899 14.7598 4.77471 14.6112 5.12492C12.9971 4.89144 11.3946 4.89144 9.80275 5.12492C9.65417 4.77471 9.4313 4.32899 9.25088 4C7.72271 4.2547 6.26881 4.71103 4.90934 5.33716C2.16072 9.39111 1.41785 13.3495 1.78929 17.2549C3.61462 18.5815 5.37631 19.388 7.10721 19.9187C7.53171 19.3456 7.91376 18.73 8.24275 18.0827C7.61661 17.8492 7.02231 17.5627 6.44923 17.2231C6.59782 17.117 6.7464 17.0003 6.88436 16.8835C10.344 18.4648 14.0913 18.4648 17.5084 16.8835C17.657 17.0003 17.795 17.117 17.9436 17.2231C17.3705 17.5627 16.7762 17.8492 16.1501 18.0827C16.4791 18.73 16.8611 19.3456 17.2856 19.9187C19.0154 19.388 20.7877 18.5815 22.6035 17.2549C23.0598 12.7341 21.8808 8.80747 19.5036 5.33716ZM8.7203 14.8459C7.68026 14.8459 6.83127 13.9014 6.83127 12.7447C6.83127 11.5879 7.65903 10.6434 8.7203 10.6434C9.77091 10.6434 10.6305 11.5879 10.6093 12.7447C10.6093 13.9014 9.77091 14.8459 8.7203 14.8459ZM15.6938 14.8459C14.6537 14.8459 13.8036 13.9014 13.8036 12.7447C13.8036 11.5879 14.6325 10.6434 15.6938 10.6434C16.7444 10.6434 17.604 11.5879 17.5827 12.7447C17.5827 13.9014 16.755 14.8459 15.6938 14.8459Z" fill="#1E2939"/>
+                </svg>            
+              </a>
+              <a href="https://t.me/Aza_Ventures" target="_blank" class="footer-icon">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22.7998 12C22.7998 17.5228 18.3226 22 12.7998 22C7.27695 22 2.7998 17.5228 2.7998 12C2.7998 6.47715 7.27695 2 12.7998 2C18.3226 2 22.7998 6.47715 22.7998 12ZM13.1582 9.38246C12.1855 9.78702 10.2416 10.6244 7.3264 11.8945C6.85301 12.0827 6.60504 12.2669 6.58246 12.4469C6.54431 12.7513 6.92541 12.8711 7.44438 13.0343C7.51497 13.0565 7.58812 13.0795 7.6631 13.1039C8.17368 13.2698 8.86051 13.464 9.21756 13.4717C9.54144 13.4787 9.90293 13.3452 10.302 13.0711C13.0258 11.2325 14.4318 10.3032 14.5201 10.2832C14.5824 10.269 14.6687 10.2513 14.7271 10.3032C14.7856 10.3552 14.7798 10.4536 14.7737 10.48C14.7359 10.641 13.2399 12.0318 12.4658 12.7515C12.2349 12.9661 12.0099 13.1853 11.7831 13.4039C11.3088 13.8611 10.9531 14.204 11.8028 14.764C12.6642 15.3317 13.5321 15.8982 14.3722 16.4971C14.7865 16.7925 15.1588 17.0579 15.6186 17.0156C15.8859 16.991 16.1619 16.7397 16.302 15.9903C16.6333 14.2193 17.2845 10.3821 17.435 8.80083C17.4482 8.6623 17.4316 8.485 17.4183 8.40717C17.405 8.32934 17.3771 8.21844 17.276 8.13635C17.1561 8.03913 16.9712 8.01863 16.8885 8.02009C16.5123 8.02672 15.9353 8.22737 13.1582 9.38246Z" fill="#1E2939"/>
+                </svg>            
+              </a>
+              <a href="https://www.linkedin.com/in/aza-waseem/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="footer-icon">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.7361 18.339H16.0706V14.1622C16.0706 13.1662 16.0504 11.8845 14.6816 11.8845C13.2919 11.8845 13.0796 12.9683 13.0796 14.0887V18.339H10.4141V9.75H12.9746V10.9207H13.0091C13.3669 10.2457 14.2369 9.53325 15.5366 9.53325C18.2374 9.53325 18.7369 11.3108 18.7369 13.6245L18.7361 18.339ZM7.40363 8.57475C6.54563 8.57475 5.85638 7.88025 5.85638 7.026C5.85638 6.1725 6.54638 5.47875 7.40363 5.47875C8.25863 5.47875 8.95163 6.1725 8.95163 7.026C8.95163 7.88025 8.25788 8.57475 7.40363 8.57475ZM8.74013 18.339H6.06713V9.75H8.74013V18.339ZM20.0696 3H4.72913C3.99488 3 3.40088 3.5805 3.40088 4.29675V19.7033C3.40088 20.4202 3.99488 21 4.72913 21H20.0674C20.8009 21 21.4009 20.4202 21.4009 19.7033V4.29675C21.4009 3.5805 20.8009 3 20.0674 3H20.0696Z" fill="#1E2939"/>
+                </svg>            
+              </a>
+              <a href="https://www.instagram.com/azagroups" target="_blank" class="footer-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#1E2939" viewBox="0 0 256 256">
+                  <path d="M176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24ZM128,176a48,48,0,1,1,48-48A48.05,48.05,0,0,1,128,176Zm60-96a12,12,0,1,1,12-12A12,12,0,0,1,188,80Zm-28,48a32,32,0,1,1-32-32A32,32,0,0,1,160,128Z"></path>
+                </svg>           
+              </a>
+            </div>
+          </div>
+          <p class="text-base font-sora text-light/75">
+            © 2025 AZAVentures. All rights reserved.
+          </p>
+        </div>
+        <div class="hidden lg:block"></div>
+        <form class="lg:col-span-6 flex flex-col gap-6" action="https://formsubmit.co/Director@aza.ventures" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="http://aza.ventures/thank-you.html">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <input 
+              class="theme-input"
+              type="text" 
+              name="name" 
+              placeholder="Name"
+              required
+            >
+            <input 
+              class="theme-input"
+              type="email" 
+              name="email" 
+              placeholder="Email"
+              required
+            >
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <input 
+              class="theme-input"
+              type="text" 
+              name="companyName" 
+              placeholder="Company Name"
+              required
+            >
+            <input 
+              class="theme-input"
+              type="url" 
+              name="url" 
+              placeholder="Website/Deck Link"
+              required
+            >
+          </div>
+          <textarea class="theme-input h-[160px]" name="message" placeholder="Tell Us About It" required></textarea>
+          <button type="submit" class="flex items-center justify-center gap-2 bg-primary group-hover:bg-[rgba(230,230,250,0.1)] btn-icon-reveal text-dark text-base leading-8 font-semibold py-12 px-16 rounded-[32px] animated-button relative group overflow-hidden" data-text="Pitch Your Startup" data-animated-button>
+            <span class="hover-circle absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-dark transform -translate-x-1/2 -translate-y-1/2 scale-0 pointer-events-none transition-transform duration-500 group-hover:duration-1000 ease-out group-hover:scale-[4] z-0"></span>
+            <span class="animated-text relative flex items-center overflow-hidden z-10 leading-relaxed group-hover:text-light transition-colors duration-500">Send Pitch</span>
+            <div class="relative z-10 overflow-hidden transition-all duration-500 w-8 h-8 group-hover:text-light">
+              <svg class="btn-icon w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></svg>
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+   <!-- <h2 class="split-heading text-5xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+    AZA Ventures is the kind of partner who earns your trust through action, <br>
+      <span class="text-7xl font-serif font-normal">
+        not just capital.
+      </span>
+  </h2> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const marquee = document.getElementById("marquee");
+      const text = marquee.querySelector("div");
+      const percentageEl = document.getElementById("percentage");
+      const loader = document.getElementById("loader");
+
+      // Prevent scrolling while loader is visible
+      document.body.classList.add("loader-active");
+
+      // Clone for seamless marquee
+      const cloneCount = Math.ceil(window.innerWidth / text.offsetWidth) + 2;
+      for (let i = 0; i < cloneCount; i++) {
+        const clone = text.cloneNode(true);
+        marquee.appendChild(clone);
+      }
+
+      // GSAP Marquee
+      gsap.to(marquee, {
+        x: `-=${text.offsetWidth + 64}`,
+        duration: 5,
+        ease: "linear",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % (text.offsetWidth + 64))
+        }
+      });
+
+      // GSAP Percentage Counter
+      let counter = { value: 0 };
+      gsap.to(counter, {
+        value: 100,
+        duration: 2,
+        ease: "power2.out",
+        onUpdate: () => {
+          percentageEl.textContent = `${Math.round(counter.value)}%`;
+        }
+      });
+
+      // Hide loader with smooth scroll-up
+      window.addEventListener("load", () => {
+        gsap.to(loader, {
+          delay: 1.5,
+          y: "-100%",
+          duration: 1,
+          ease: "power2.inOut",
+          onComplete: () => {
+            loader.remove();
+            document.body.classList.remove("loader-active");
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+  function initMarquee(marqueeSelector, duration = 20, gap = 80) {
+    const marquee = document.querySelector(marqueeSelector);
+    if (!marquee) return;
+
+    const marqueeImg = marquee.querySelector(".marquee-img");
+    if (!marqueeImg) return;
+
+    // Wait for image to load
+    marqueeImg.onload = () => {
+      const imgWidth = marqueeImg.offsetWidth;
+      const itemTotal = imgWidth + gap;
+
+      // Duplicate until it covers 2x screen width
+      const clonesNeeded = Math.ceil((window.innerWidth * 2) / itemTotal);
+      for (let i = 0; i < clonesNeeded; i++) {
+        const clone = marqueeImg.cloneNode(true);
+        marquee.appendChild(clone);
+      }
+
+      const loopWidth = itemTotal * clonesNeeded;
+
+      gsap.to(marquee, {
+        x: `-=${itemTotal}`,
+        duration: duration,
+        ease: "linear",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % itemTotal)
+        }
+      });
+    };
+
+    // If already cached, force load event
+    if (marqueeImg.complete) {
+      marqueeImg.onload();
+    }
+  }
+
+  // ✅ Call for multiple marquees
+  document.addEventListener("DOMContentLoaded", () => {
+    initMarquee("#marquee1");
+    initMarquee("#marquee2", 25); // with custom speed
+    initMarquee("#marquee3", 15, 60); // custom speed & gap
+  });
+  </script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true, 
+      },
+      grabCursor: true,  
+      touchRatio: 1,     
+      threshold: 5,     
+      spaceBetween: 24,
+    });
+  </script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      multiplier: 1,
+    });
+
+    scroll.on("scroll", ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+      scrollTop(value) {
+        return arguments.length
+          ? scroll.scrollTo(value, 0, 0)
+          : scroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+      pinType: document.querySelector("[data-scroll-container]").style.transform
+        ? "transform"
+        : "fixed",
+    });
+
+    ScrollTrigger.addEventListener("refresh", () => scroll.update());
+    ScrollTrigger.refresh();
+  </script>
+
+  <script>
+    gsap.to("#globeImage", {
+      rotate: 190, // rotation in degrees
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#globeImage",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+        scroller: "[data-scroll-container]",
+      },
+      transformOrigin: "50% 50%",
+    });
+  </script>
+
+  <script> 
+    document.querySelectorAll("[data-animated-button]").forEach((button) => {
+    const container = button.querySelector(".animated-text");
+    const circle = button.querySelector(".hover-circle");
+    const text = button.dataset.text || container.textContent.trim();
+    container.innerHTML = "";
+
+    const words = text.split(" ");
+    words.forEach((word, index) => {
+      const wordWrapper = document.createElement("span");
+      wordWrapper.className = "inline-flex";
+      if (index < words.length - 1) {
+        wordWrapper.classList.add("mr-[0.35ch]"); // mimic space
+      }
+
+      word.split("").forEach((char) => {
+        const outer = document.createElement("span");
+        outer.className = "relative inline-block leading-relaxed";
+        outer.innerHTML = `
+          <span class="block translate-y-0 char-top">${char}</span>
+          <span class="block absolute left-0 top-full translate-y-0 char-bottom">${char}</span>
+        `;
+        wordWrapper.appendChild(outer);
+      });
+
+      container.appendChild(wordWrapper);
+    });
+
+    // Hover animation
+    button.addEventListener("mouseenter", () => {
+      gsap.to(button.querySelectorAll(".char-top"), {
+        yPercent: -100,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+      gsap.to(button.querySelectorAll(".char-bottom"), {
+        yPercent: -100,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+    });
+
+    button.addEventListener("mouseleave", () => {
+      gsap.to(button.querySelectorAll(".char-top"), {
+        yPercent: 0,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+      gsap.to(button.querySelectorAll(".char-bottom"), {
+        yPercent: 0,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+    });
+
+    // Ripple
+    button.addEventListener("mousemove", (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      circle.style.left = `${x}px`;
+      circle.style.top = `${y}px`;
+    });
+  });
+
+  </script>
+
+  <script>
+    function handleScrollDirectionWithLocomotive(scrollInstance, targetEl, className = 'hide-header', offset = 50) {
+      let lastScrollY = 0;
+
+      scrollInstance.on('scroll', (args) => {
+        const currentScrollY = args.scroll.y;
+
+        if (currentScrollY > lastScrollY && currentScrollY > offset) {
+          targetEl.classList.add(className); 
+        } else {
+          targetEl.classList.remove(className); 
+        }
+
+        lastScrollY = currentScrollY;
+      });
+    }
+
+    // Call after Locomotive is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('mainHeader');
+
+      // Wait a tick to ensure locomotive is ready
+      setTimeout(() => {
+        handleScrollDirectionWithLocomotive(scroll, header);
+      }, 100);
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const heading = document.getElementById("animatedHeading");
+
+      // Get raw HTML and break into lines by <br>
+      const rawLines = heading.innerHTML.split(/<br\s*\/?>/i);
+
+      heading.innerHTML = ''; // Clear original content
+
+      rawLines.forEach((line, lineIndex) => {
+        const lineWrapper = document.createElement("div");
+        lineWrapper.className = "heading-line inline-block";
+
+        // Retain structure (like span styling)
+        const temp = document.createElement("div");
+        temp.innerHTML = line.trim();
+        const nodes = temp.childNodes;
+
+        nodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            processTextLine(node.textContent, lineWrapper);
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            const spanWrapper = document.createElement("span");
+            spanWrapper.className = node.className;
+            processTextLine(node.textContent, spanWrapper);
+            lineWrapper.appendChild(spanWrapper);
+          }
+        });
+
+        heading.appendChild(lineWrapper);
+        if (lineIndex < rawLines.length - 1) {
+          heading.appendChild(document.createElement("br"));
+        }
+      });
+
+      function processTextLine(text, parentEl) {
+        const words = text.trim().split(" ");
+
+        words.forEach((word, index) => {
+          const wordWrapper = document.createElement("span");
+          wordWrapper.className = "word lg:inline xxs:inline-block overflow-hidden";
+
+          [...word].forEach(char => {
+            const charSpan = document.createElement("span");
+            charSpan.className = "char lg:inline xxs:inline-block";
+            charSpan.textContent = char;
+            wordWrapper.appendChild(charSpan);
+          });
+
+          parentEl.appendChild(wordWrapper);
+
+          // Add natural space after word (except last)
+          if (index !== words.length - 1) {
+            const spaceSpan = document.createElement("span");
+            spaceSpan.className = "space inline";
+            spaceSpan.textContent = " ";
+            parentEl.appendChild(spaceSpan);
+          }
+        });
+      }
+    });
+  </script>
+
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      const header = document.getElementById("mainHeader");
+      const description = document.querySelector("section p.font-sora");
+      const buttons = document.querySelectorAll("section .animated-button");
+      const web3Img = document.querySelector("section img[alt='web3']");
+      const chars = document.querySelectorAll("#animatedHeading .char");
+
+      // Hide all elements initially
+      gsap.set(header, { opacity: 0, y: -100 });
+      gsap.set([description, buttons, web3Img], { opacity: 0, y: 30 });
+      gsap.set(chars, { opacity: 0, y: 30 });
+
+      // Hide loader first
+      gsap.to(loader, {
+        y: "-100%",
+        duration: 0.6,
+        ease: "power2.inOut",
+        delay: 1,
+        onComplete: () => {
+          loader.remove();
+          document.body.classList.remove("loader-active");
+
+          const tl = gsap.timeline();
+
+          // 1️⃣ Header in
+          tl.to(header, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          })
+
+          // ✅ Use a dummy target with short delay instead of addPause
+          .to({}, { duration: 0.1 })
+
+          // 2️⃣ Heading letters
+          .to(chars, {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.015,
+            ease: "power4.out"
+          })
+
+          // 3️⃣ Description + buttons + image during heading
+          .to([description, buttons, web3Img], {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out"
+          }, "<+0.2"); // start just after heading begins
+        }
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll(".split-heading");
+
+    headings.forEach((heading) => {
+      const rawLines = heading.innerHTML.split(/<br\s*\/?>/i);
+      heading.innerHTML = "";
+
+      rawLines.forEach((line, lineIndex) => {
+        const lineWrapper = document.createElement("div");
+        lineWrapper.className = "heading-line inline-block";
+
+        const temp = document.createElement("div");
+        temp.innerHTML = line.trim();
+        const nodes = temp.childNodes;
+
+        nodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            wrapWords(node.textContent, lineWrapper);
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            const spanWrapper = document.createElement("span");
+            spanWrapper.className = node.className;
+            wrapWords(node.textContent, spanWrapper);
+            lineWrapper.appendChild(spanWrapper);
+          }
+        });
+
+        heading.appendChild(lineWrapper);
+        if (lineIndex < rawLines.length - 1) {
+          heading.appendChild(document.createElement("br"));
+        }
+      });
+
+      function wrapWords(text, parent) {
+        const words = text.split(" ");
+        words.forEach((word, index) => {
+          const wordWrapper = document.createElement("span");
+          wordWrapper.className = "word inline-block overflow-hidden";
+
+          [...word].forEach(char => {
+            const charSpan = document.createElement("span");
+            charSpan.className = "char inline-block opacity-0 translate-y-6";
+            charSpan.textContent = char;
+            wordWrapper.appendChild(charSpan);
+          });
+
+          parent.appendChild(wordWrapper);
+          if (index !== words.length - 1) {
+            parent.appendChild(document.createTextNode(" "));
+          }
+        });
+      }
+    });
+
+    // Animate each heading when it scrolls into view
+    document.querySelectorAll(".split-heading").forEach((heading) => {
+      const chars = heading.querySelectorAll(".char");
+      gsap.set(chars, { opacity: 0, y: 30 });
+
+      ScrollTrigger.create({
+        trigger: heading,
+        scroller: "[data-scroll-container]",
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+          gsap.to(chars, {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power4.out",
+            stagger: 0.015
+          });
+        },
+      });
+    });
+
+    function registerScrollAnim(selector, animProps = {}, options = {}) {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        gsap.set(el, animProps.from);
+
+        ScrollTrigger.create({
+          trigger: el,
+          scroller: "[data-scroll-container]",
+          start: options.start || "top 85%",
+          once: options.once !== false,
+          onEnter: () => {
+            gsap.to(el, {
+              ...animProps.to,
+              duration: animProps.duration || 1,
+              ease: animProps.ease || "power2.out",
+              delay: parseFloat(el.dataset.delay) || 0
+            });
+          }
+        });
+      });
+    }
+
+    registerScrollAnim(".fade-up", { from: { opacity: 0, y: 40 }, to: { opacity: 1, y: 0 } });
+    registerScrollAnim(".fade-in", { from: { opacity: 0 }, to: { opacity: 1 } });
+    registerScrollAnim(".fade-down", { from: { opacity: 0, y: -40 }, to: { opacity: 1, y: 0 } });
+    registerScrollAnim(".blur-up", { from: { opacity: 0, y: 40, filter: "blur(8px)" }, to: { opacity: 1, y: 0, filter: "blur(0px)" } });
+    registerScrollAnim(".blur-down", { from: { opacity: 0, y: -40, filter: "blur(8px)" }, to: { opacity: 1, y: 0, filter: "blur(0px)" } });
+  });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.getElementById("burgerToggle");
+      const drawer = document.getElementById("mobileMenu");
+      const close = document.getElementById("closeMenu");
+
+      burger.addEventListener("click", () => {
+        drawer.classList.remove("-translate-x-full", "left-0");
+        drawer.classList.add("left-3");
+        document.body.classList.add("overflow-hidden");
+      });
+
+      close.addEventListener("click", () => {
+        drawer.classList.add("-translate-x-full");
+        drawer.classList.remove("left-3"); // ✅ Fix here
+        drawer.classList.add("left-0");
+        document.body.classList.remove("overflow-hidden");
+      });
+    });
+  </script>
+  <script>
+    function initMarquee(selector, speed = 100, gap = 0) {
+      const marquee = document.querySelector(selector);
+      if (!marquee) return;
+      const items = marquee.querySelectorAll("div");
+      if (items.length === 0) return;
+      const firstItem = items[0];
+      const cloneCount = Math.ceil(window.innerWidth / (firstItem.offsetWidth + gap)) + 2;
+      for (let i = 0; i < cloneCount; i++) {
+        items.forEach(item => {
+          const clone = item.cloneNode(true);
+          marquee.appendChild(clone);
+        });
+        if (gap > 0) {
+          const spacer = document.createElement('div');
+          spacer.style.width = `${gap}px`;
+          marquee.appendChild(spacer);
+        }
+      }
+      gsap.to(marquee, {
+        x: `-=${(firstItem.offsetWidth + gap) * items.length}`,
+        duration: speed,
+        ease: "linear",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % ((firstItem.offsetWidth + gap) * items.length))
+        }
+      });
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      initMarquee("#marquee4");
+      initMarquee("#marquee5");
+      initMarquee("#network-marquee1");
+      initMarquee("#network-marquee2");
+      initMarquee("#network-marquee3");
+      initMarquee("#network-marquee4");
+      initMarquee("#network-marquee5");
+      initMarquee("#network-marquee6");
+      initMarquee("#network-marquee7");
+      initMarquee("#network-marquee8");
+      initMarquee("#network-marquee9");
+    });
+  </script>
+</body>
+</html>

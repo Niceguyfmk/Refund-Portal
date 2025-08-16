@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/libs/phosphor-icons/Fonts/regular/style.css">
+  <link rel="stylesheet" href="assets/libs/phosphor-icons/Fonts/thin/style.css">
+  <link rel="stylesheet" href="assets/libs/phosphor-icons/Fonts/fill/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="assets/css/output.css">
+</head>
+<body data-scroll-container>
+
+  <div class="absolute top-[-34%] right-[20%] w-[199px] h-[496px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+    <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+  </div>
+
+  <div class="absolute top-[-40%] left-[37%] w-[199px] h-[685px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+    <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+  </div>
+
+  <div class="absolute top-[-18%] left-[28%] w-[199px] h-[496px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+    <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+  </div>
+
+  <div class="absolute top-[-34%] left-[6%] w-[199px] h-[496px] blur-[32px] opacity-[0.35] rotate-[-30deg] z-10 pointer-events-none">
+    <div class="w-full h-full bg-gradient-header to-transparent clip-triangle"></div>
+  </div>
+
+  <header id="mainHeader" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] backdrop-blur-[20px] overflow-hidden rounded-[16px] transition-transform duration-300">
+    <div class="flex items-center justify-between gap-10 bg-white bg-opacity-50 p-1 pl-4">
+        <div class="relative">
+          <a href="" class="block">
+            <img class="max-w-none w-[137px] h-auto" src="assets/img/logo-header.png" alt="aza.ventures">
+          </a>
+        </div>
+        <div class="relative">
+          <ul class="flex items-center gap-1">
+            <li>
+              <a href="" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap">Home</a>
+            </li>
+            <li>
+              <a href="" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap">About</a>
+            </li>
+            <li>
+              <a href="" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap">What We do</a>
+            </li>
+            <li>
+              <a href="" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap">Portfolio</a>
+            </li>
+            <li>
+              <a href="" class="py-[7px] px-4 block text-base font-normal text-[#1e2939] whitespace-nowrap">Insights</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex">
+          <a href="" class="flex items-center gap-2 bg-primary text-dark border-b border-b-[rgba(30,41,57,0.25)] text-sm leading-[21px] font-semibold whitespace-nowrap py-[7px] px-3 rounded-xl">
+            Pitch Us
+          </a>
+        </div>
+      </div>
+  </header>
+
+  <section class="relative mb-[160px]" data-scroll-section>
+    <div class="container">
+      <div class="pt-[125px] pb-[128px] mx-auto text-center relative z-20">
+        <h1 class="text-9xl leading-[100px] font-semibold tracking-[-4px] bg-gradient-text bg-clip-text text-transparent inline-block">
+          Backing the Bold. <br>
+          <span class="text-10xl leading-[132px] font-serif font-normal">Building the Future.</span>
+        </h1>
+        <p class="font-sora pt-[32px] pb-[40px] max-w-[540px] w-full mx-auto">
+          We partner with visionary founders to transform the Web3 ecosystem. If you're building the next big thing in blockchain,
+          we're here to help you grow.
+        </p>
+        <div class="flex items-center justify-center gap-4">
+          <div class="flex">
+            <a href="#" class="flex items-center gap-2 bg-dark group-hover:text-primary btn-icon-reveal text-light text-base leading-8 font-semibold py-12 px-16 rounded-[32px] animated-button relative group overflow-hidden" data-animated-button data-text="Pitch Your Startup">
+              <span class="hover-circle absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-primary transform -translate-x-1/2 -translate-y-1/2 scale-0 pointer-events-none transition-transform duration-500 group-hover:duration-1000 ease-out group-hover:scale-[4] z-0"></span>
+              <span class="animated-text relative flex items-center overflow-hidden z-10 leading-relaxed group-hover:text-dark transition-colors duration-500">Pitch Your Startup</span>
+              <div class="relative z-10 overflow-hidden transition-all duration-500 w-8 h-8 group-hover:text-dark">
+                <svg class="btn-icon w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+              </div>
+            </a>
+          </div>
+          <div class="flex">
+            <a href="#" class="flex items-center gap-2 bg-[rgba(240,240,255,0.5)] group-hover:text-primary btn-icon-reveal text-dark border-b border-b-[rgba(30,41,57,0.25)] backdrop-blur-[30px] text-base leading-8 font-semibold py-12 px-16 rounded-[32px] animated-button relative group overflow-hidden" data-animated-button data-text="Explore Our Portfolio">
+              <span class="hover-circle absolute top-0 left-0 w-[200px] h-[200px] rounded-full bg-primary transform -translate-x-1/2 -translate-y-1/2 scale-0 pointer-events-none transition-transform duration-500 group-hover:duration-1000 ease-out group-hover:scale-[4] z-0"></span>
+              <span class="animated-text relative flex items-center overflow-hidden z-10 leading-relaxed group-hover:text-dark transition-colors duration-500"> Explore Our Portfolio </span>
+            </a>
+          </div>
+        </div>
+      </div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full z-10 2xl:max-w-[1440px]">
+        <img class="w-full h-full object-cover" src="assets/img/Web3.png" alt="web3">
+      </div>
+    </div>
+  </section>
+
+  <section class="relative" data-scroll-section>
+    <div class="container">
+    <div class="absolute inset-0 flex items-center justify-center z-0">
+      <img src="assets/img/globe-image.png" alt="Network Globe" id="globeImage" class="w-[630px] h-[630px] opacity-10 absolute z-0 pointer-events-none" data-scroll>
+      <img src="assets/img/aza-ventures-logo.png" alt="aza Ventures Logo" class="w-28 md:w-32 absolute z-10 pointer-events-none">
+    </div>
+    <div class="relative z-20 grid grid-cols-3 grid-rows-3 gap-y-32 place-items-center">
+      <div class="col-start-2 row-start-1 bg-primary rounded-xl p-6 text-center w-full">
+        <p class="text-5xl leading-[50px] font-semibold">70+</p>
+        <p class="text-6xl leading-[60px] font-serif font-normal">Startups Funded</p>
+      </div>
+      <div class="col-start-1 row-start-2 bg-primary rounded-xl p-6 text-center w-full">
+        <p class="text-5xl leading-[50px] font-semibold">$13M+</p>
+        <p class="text-6xl leading-[60px] font-serif font-normal">Assets Under <br> Management</p>
+      </div>
+      <div class="col-start-3 row-start-2 bg-primary rounded-xl p-6 text-center w-full">
+        <p class="text-5xl leading-[50px] font-semibold">20K+</p>
+        <p class="text-6xl leading-[60px] font-serif font-normal">Community <br> Members</p>
+      </div>
+      <div class="col-start-2 row-start-3 bg-primary rounded-xl p-6 text-center w-full">
+        <p class="text-5xl leading-[50px] font-semibold">Since</p>
+        <p class="text-6xl leading-[60px] font-serif font-normal">2021</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="relative my-40" data-scroll-section>
+    <div class="container">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-5xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+          Trusted by <br>
+            <span class="text-6xl font-serif font-normal block">Industry Titans</span>
+        </h2>
+      </div>
+
+    <!-- Logos Grid -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+      </div>
+    </div>  
+  </section>
+
+  <section class="relative py-40 mt-40 bg-primary overflow-hidden" data-scroll-section>
+    <div class="container">
+      <div class="max-w-[1080px] mx-auto text-start">
+        <h2 class="text-6xl font-serif bg-gradient-text bg-clip-text text-transparent inline-block" data-scroll data-scroll-speed="1">
+          We don’t just write checks 
+            <span class="text-5xl font-sora font-semibold">
+              — we roll up our sleeves and partner with Web3 founders from day 0. 
+              Whether you’re building infrastructure, gaming, or something no one’s 
+              imagined yet, we back you with conviction, clarity, 
+              and connections that matter.
+            </span>
+        </h2>
+      </div>
+      <div class="max-w-7xl mx-auto mt-16 grid gap-6 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+        <div class="bg-tertiary rounded-[32px] text-center py-6 px-8">
+          <h2 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+              Smart <br>
+              <span class="text-4.5xl font-serif font-normal">
+              Capital
+              </span>
+          </h2>
+          <p class="text-base text-[#1e2939] my-4">
+            We provide early funding designed for Web3 speed — no red tape, just belief.
+          </p>
+          <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+            <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><circle cx="128" cy="128" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="16" y="64" width="224" height="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M240,104a48.85,48.85,0,0,1-40-40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,192a48.85,48.85,0,0,1,40-40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M16,152a48.85,48.85,0,0,1,40,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M56,64a48.85,48.85,0,0,1-40,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+          </div>
+        </div>
+        <div class="bg-tertiary rounded-[32px] text-center py-6 px-8">
+          <h2 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+              Strategic <br>
+              <span class="text-4.5xl font-serif font-normal">
+              Support
+              </span>
+          </h2>
+          <p class="text-base text-[#1e2939] my-4">
+            From tokenomics to scaling, our team is hands-on with every founder we back.
+          </p>
+          <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+            <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><line x1="128" y1="232" x2="128" y2="200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="88" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="24" x2="128" y2="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="24" y1="128" x2="56" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="232" y1="128" x2="200" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="128" cy="128" r="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+          </div>
+        </div>
+        <div class="bg-tertiary rounded-[32px] text-center py-6 px-8">
+          <h2 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+              Partner <br>
+              <span class="text-4.5xl font-serif font-normal">
+              building
+              </span>
+          </h2>
+          <p class="text-base text-[#1e2939] my-4">
+            From tokenomics to scaling, our team is hands-on with every founder we back.
+          </p>
+          <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+            <svg class="features-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" style="stroke: none;"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M168,128c0,64-40,96-40,96s-40-32-40-96,40-96,40-96S168,64,168,128Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="96" x2="218.54" y2="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="37.46" y1="160" x2="218.54" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative mt-40" data-scroll data-scroll-speed="2">
+      <div id="marquee1" class="flex gap-20 w-max will-change-transform">
+        <img src="assets/img/AZAVentures-full-image.png" alt="AZAVentures" class="marquee-img h-32 w-auto object-contain shrink-0" />
+      </div>
+    </div>
+  </section>
+
+  <div class="pb-40 bg-gradient-sections" data-scroll-section>
+
+    <section class="relative mb-40">
+      <div class="container">
+        <div class="max-w-[1080px] mx-auto text-center">
+          <h2 class="text-9xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            In a sea of noise, <br>
+              <span class="text-10xl font-serif font-normal">
+                we listen.
+              </span>
+          </h2>
+        </div>
+        <div class="relative m-16">
+            <div class="overflow-hidden rounded-[48px] w-full h-[360px]">
+              <video
+                id="heroVideo"
+                src="assets/videos/video1.mp4"
+                class="w-full h-auto object-cover will-change-transform"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="relative mt-16 mb-40">
+      <div class="container">
+        <div class="max-w-[1000px] mx-auto text-center">
+          <h2 class="text-9xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            In a space <br>
+            full of promises, <br>
+              <span class="text-10xl font-serif font-normal">
+                we deliver.
+              </span>
+          </h2>
+        </div>
+        <div class="relative m-16">
+            <div class="overflow-hidden rounded-[48px] w-full h-[360px]">
+              <video
+                id="heroVideo"
+                src="assets/videos/video2.mp4"
+                class="w-full h-auto object-cover will-change-transform"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="relative">
+      <div class="container">
+        <div class="max-w-[900px] mx-auto text-center">
+          <h2 class="text-5xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+            AZA Ventures is the kind of partner who earns your trust through action, <br>
+              <span class="text-7xl font-serif font-normal">
+               not just capital.
+              </span>
+          </h2>
+        </div>
+        <div class="flex flex-col gap-y-6 mt-16">
+          <div class="w-full flex-zero-zeor-auto">
+            <div class="flex items-center justify-between gap-x-4 bg-[#fddc5c] rounded-[48px] px-8 py-6">
+              <div class="flex items-center gap-x-6">
+                <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+                  <i class="ph-thin ph-brain icon text-[128px] text-[#b56edc] inline-flex leading-none"></i>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Founder-First <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                      Thinking
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-[#1e2939] leading-[1.6]">
+                  We move fast and back conviction over credentials. We believe great 
+                  founders can come from anywhere — with or without a Stanford 
+                  degree or a Y Combinator badge.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex-zero-zeor-auto">
+            <div class="flex items-center justify-between gap-x-4 bg-[#fddc5c] rounded-[48px] px-8 py-6">
+              <div class="flex items-center gap-x-6">
+                <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+                  <i class="ph-thin ph-globe icon text-[128px] text-[#b56edc] inline-flex leading-none"></i>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Web3-Native <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                        Builders
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-[#1e2939] leading-[1.6]">
+                   Our team lives and breathes crypto — not just as investors, but as builders, 
+                   contributors, and early adopters. We understand the protocols, 
+                   the communities, and the code.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex-zero-zeor-auto">
+            <div class="flex items-center justify-between gap-x-4 bg-[#fddc5c] rounded-[48px] px-8 py-6">
+              <div class="flex items-center gap-x-6">
+                <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+                  <i class="ph-thin ph-handshake icon text-[128px] text-[#b56edc] inline-flex leading-none"></i>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Long-Term <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                        Allies
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-[#1e2939] leading-[1.6]">
+                  We move fast and back conviction over credentials. We believe great 
+                  founders can come from anywhere — with or without a Stanford 
+                  degree or a Y Combinator badge.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex-zero-zeor-auto">
+            <div class="flex items-center justify-between gap-x-4 bg-[#fddc5c] rounded-[48px] px-8 py-6">
+              <div class="flex items-center gap-x-6">
+                <div class="flex items-center justify-center text-center mx-auto w-32 h-32">
+                  <i class="ph-thin ph-rocket-launch icon text-[128px] text-[#b56edc] inline-flex leading-none"></i>
+                </div>
+                <div class="flex">
+                  <h3 class="text-4xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+                    Real-World <br>
+                      <span class="text-4.5xl font-serif font-normal">
+                        Outcomes
+                      </span>
+                  </h3>
+                </div>
+              </div>
+              <div class="max-w-[540px] w-full">
+                <p class="text-base text-[#1e2939] leading-[1.6]">
+                  We move fast and back conviction over credentials. We believe great 
+                  founders can come from anywhere — with or without a Stanford 
+                  degree or a Y Combinator badge.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <div class="container">
+        <div class="flex items-center gap-6 max-w-[950px] mx-auto">
+          <i class="ph-fill ph-quotes text-[128px] text-[#B56EDC]"></i>
+          <div class="flex-1 flex flex-col items-center gap-6">
+            <h2 class="text-4xl font-semibold text-center bg-gradient-text bg-clip-text text-transparent inline-block tracking-[-0.01em]">
+              “AZA’s speed and support changed <br> our trajectory. They believed early and stayed involved.”
+            </h2>
+            <div class="flex items-center gap-4">
+              <a href="" class="flex items-center gap-4">
+                <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img2.jpg" alt="profile-image">
+                <div class="flex flex-col items-start gap-1">
+                  <h2 class="text-base font-sora font-semibold text-[#1E2939]">Luca Moreau</h2>
+                  <p class="text-base font-sora text-[#1E2939]/50">Founder of NuLink</p>
+                </div>
+              </a>
+              <a href="" class="flex">
+                <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo2.png" alt="review-logo-image">
+              </a>
+            </div>
+          </div>
+          <i class="ph-fill ph-quotes text-[128px] text-[#B56EDC]"></i>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="relative mb-40" data-scroll-section>
+    <div class="container">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-5xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+          Startups We’ve Backed <br>
+            <span class="text-6xl font-serif font-normal block">and Still Believe</span>
+        </h2>
+      </div>
+
+    <!-- Logos Grid -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo1.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo2.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo3.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo4.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo5.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo6.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo7.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo8.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo9.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo10.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo11.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+        <div class="flex items-center justify-center w-full h-[100px]">
+          <img src="assets/img/client-logo12.png" alt="Ferrum Network" class="h-auto w-auto object-contain">
+        </div>
+      </div>
+    </div>  
+  </section>
+
+  <section class="review-sec relative my-40" data-scroll-section>
+    <div class="container">
+      <div class="max-w-[900px] mx-auto mb-16 text-center">
+        <h2 class="text-5xl font-semibold bg-gradient-text bg-clip-text text-transparent inline-block">
+          Why Founders Trust AZA <br>
+            <span class="text-7xl font-serif font-normal">
+              In Their Own Words
+            </span>
+        </h2>
+      </div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper mb-6">
+          <div class="swiper-slide">
+            <div class="flex flex-col gap-8 bg-[#1E2939] rounded-[48px] p-8 max-w-[870px] mx-auto">
+              <h2 class="text-4xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+                “Most investors say they’re Web3-native. AZA actually is. From tokenomics to governance structure, they asked better questions than anyone else we spoke to.”
+              </h2>
+              <div class="flex items-center gap-4">
+                <a href="" class="flex items-center gap-4">
+                  <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img3.jpg" alt="profile-image">
+                  <div class="flex flex-col items-start gap-1">
+                    <h2 class="text-base font-sora font-semibold text-[#E6E6FA]">Darius Okafor</h2>
+                    <p class="text-base font-sora text-[#E6E6FA]/50">Founder of NovaGuild</p>
+                  </div>
+                </a>
+                <a href="" class="flex">
+                  <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo.png" alt="review-logo-image">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="flex flex-col gap-8 bg-[#1E2939] rounded-[48px] p-8 max-w-[870px] mx-auto">
+              <h2 class="text-4xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+                “Most investors say they’re Web3-native. AZA actually is. From tokenomics to governance structure, they asked better questions than anyone else we spoke to.”
+              </h2>
+              <div class="flex items-center gap-4">
+                <a href="" class="flex items-center gap-4">
+                  <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img3.jpg" alt="profile-image">
+                  <div class="flex flex-col items-start gap-1">
+                    <h2 class="text-base font-sora font-semibold text-[#E6E6FA]">Darius Okafor</h2>
+                    <p class="text-base font-sora text-[#E6E6FA]/50">Founder of NovaGuild</p>
+                  </div>
+                </a>
+                <a href="" class="flex">
+                  <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo.png" alt="review-logo-image">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="flex flex-col gap-8 bg-[#1E2939] rounded-[48px] p-8 max-w-[870px] mx-auto">
+              <h2 class="text-4xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+                “Most investors say they’re Web3-native. AZA actually is. From tokenomics to governance structure, they asked better questions than anyone else we spoke to.”
+              </h2>
+              <div class="flex items-center gap-4">
+                <a href="" class="flex items-center gap-4">
+                  <img class="w-14 h-14 rounded-full object-cover" src="./assets/img/profile-img3.jpg" alt="profile-image">
+                  <div class="flex flex-col items-start gap-1">
+                    <h2 class="text-base font-sora font-semibold text-[#E6E6FA]">Darius Okafor</h2>
+                    <p class="text-base font-sora text-[#E6E6FA]/50">Founder of NovaGuild</p>
+                  </div>
+                </a>
+                <a href="" class="flex">
+                  <img class="w-auto h-5 object-contain" src="./assets/img/review-slider-profile-logo.png" alt="review-logo-image">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between w-full absolute top-1/2 -translate-y-[calc(50%+24px)] z-10">
+          <div class="swiper-button-prev relative text-sm font-sora font-bold !top-0 !left-0 !right-0 !bottom-0 flex items-center gap-2 py-[9px] px-4 rounded-xl text-[#1E2939] border-b border-[#1E2939]/25 bg-[#F9FAFB] !w-auto !h-auto duration-150 hover:bg-[#FDDC5C] after:hidden">
+            <i class="ph ph-caret-left text-[14px]"></i>
+            Previous
+          </div>
+          <div class="swiper-button-next relative text-sm font-sora font-bold !top-0 !left-0 !right-0 !bottom-0 flex items-center gap-2 py-[9px] px-4 rounded-xl text-[#1E2939] border-b border-[#1E2939]/25 bg-[#F9FAFB] !w-auto !h-auto duration-150 hover:bg-[#FDDC5C] after:hidden">
+            Next
+            <i class="ph ph-caret-right text-[14px]"></i>
+          </div>
+        </div>
+        <div class="swiper-pagination relative !bottom-0 !top-auto flex items-center justify-center gap-2 py-2.5"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative my-40" data-scroll-section>
+    <div class="container">
+      <div class="relative text-center py-16 rounded-[48px] overflow-hidden">
+        <img src="./assets/img/cta-bg.png" alt="cta-bg" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="flex flex-col items-center relative z-10">
+          <h2 class="text-5xl font-semibold bg-gradient-text3 bg-clip-text text-transparent inline-block">
+            The AZA Network <br>
+              <span class="text-7xl font-serif font-normal">
+                It’s More Than Just Investment
+              </span>
+          </h2>
+          <p class="text-base font-sora pt-[24px] pb-[40px] max-w-[540px] w-full mx-auto text-[#1e2939]">
+            With AZA Ventures, you don’t just get capital; you get access to a community of experts, advisors, and early adopters. Whether it’s marketing, strategy, or partnerships, we’ve got you covered.
+          </p>
+          <a href="" class="flex items-center gap-3 bg-[#1e2939] rounded-[32px] py-10 px-16">
+            <ul class="flex items-center">
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-[#E6E6FA]" src="./assets/img/profile-img1.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-[#E6E6FA]" src="./assets/img/profile-img2.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-[#E6E6FA]" src="./assets/img/profile-img3.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <img class="w-12 h-12 object-cover rounded-full border-2 border-[#E6E6FA]" src="./assets/img/profile-img4.jpg" alt="profile-image">
+              </li>
+              <li class="-ml-5">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-sections2">
+                  <i class="ph ph-telegram-logo text-[24px] text-white"></i>
+                </div>
+              </li>
+            </ul>
+            <p class="flex items-center gap-2 text-base font-sora font-bold text-[#E6E6FA]">
+              Join 20K+ Community
+              <i class="ph ph-arrow-up-right text-[32px]"></i>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark pt-40" data-scroll-section>
+    <div class="container">
+      <div class="flex flex-col items-center text-center">
+        <h2 class="text-9xl font-semibold bg-gradient-text2 bg-clip-text text-transparent inline-block">
+          Build Bold. Scale Fast. <br>
+          <span class="text-10xl font-serif font-normal block">Let’s Shape the Future of Web3.</span>
+        </h2>
+        <p class="font-sora pt-[32px] pb-[40px] max-w-[540px] w-full mx-auto text-[#e6e6fa]">
+          If you’re a bold founder with a vision for the decentralized future, we’d love to hear from you.
+        </p>
+        <div class="flex items-center justify-center gap-4">
+          <div class="flex">
+            <a href="" class="theme-btn-large !text-base !text-[#1e2939] !bg-[#fddc5c]">
+              Pitch Your Startup
+              <i class="ph ph-arrow-right icon text-[32px]"></i>
+            </a>
+          </div>
+          <div class="flex">
+            <a href="" class="theme-btn-large2 !text-base !text-[#e6e6fa] !bg-[#e6e6fa19]/10">
+              Contact Our Team
+              <i class="ph ph-arrow-right icon text-[32px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative mt-40 overflow-hidden">
+      <div id="marquee2" class="flex gap-20 w-max will-change-transform">
+        <img src="assets/img/AZAVentures-full-image.png" alt="AZAVentures" class="marquee-img h-32 w-auto object-contain shrink-0" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="flex items-center justify-between py-6">
+        <a href="" class="flex">
+          <i class="ph ph-x-logo icon text-base text-[#e6e6fa]"></i>
+        </a>
+        <a href="" class="py-[7px] px-4 block text-base font-normal text-[#e6e6fa] whitespace-nowrap">Discord</a>
+        <a href="" class="py-[7px] px-4 block text-base font-normal text-[#e6e6fa] whitespace-nowrap">Telegram</a>
+        <a href="" class="py-[7px] px-4 block text-base font-normal text-[#e6e6fa] whitespace-nowrap">LinkedIn</a>
+        <p class="text-base font-sora text-[#e6e6fa]/50">
+          © 2025 AZAVentures. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    let lastScrollY = 0;
+    const header = document.getElementById("mainHeader");
+
+    scroll.on("scroll", (instance) => {
+      const currentScrollY = instance.scroll.y;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        header.classList.add("hide-header");
+      } else {
+        header.classList.remove("hide-header");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  </script>
+
+  <script>
+  function initMarquee(marqueeSelector, duration = 20, gap = 80) {
+    const marquee = document.querySelector(marqueeSelector);
+    if (!marquee) return;
+
+    const marqueeImg = marquee.querySelector(".marquee-img");
+    if (!marqueeImg) return;
+
+    // Wait for image to load
+    marqueeImg.onload = () => {
+      const imgWidth = marqueeImg.offsetWidth;
+      const itemTotal = imgWidth + gap;
+
+      // Duplicate until it covers 2x screen width
+      const clonesNeeded = Math.ceil((window.innerWidth * 2) / itemTotal);
+      for (let i = 0; i < clonesNeeded; i++) {
+        const clone = marqueeImg.cloneNode(true);
+        marquee.appendChild(clone);
+      }
+
+      const loopWidth = itemTotal * clonesNeeded;
+
+      gsap.to(marquee, {
+        x: `-=${itemTotal}`,
+        duration: duration,
+        ease: "linear",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % itemTotal)
+        }
+      });
+    };
+
+    // If already cached, force load event
+    if (marqueeImg.complete) {
+      marqueeImg.onload();
+    }
+  }
+
+  // ✅ Call for multiple marquees
+  document.addEventListener("DOMContentLoaded", () => {
+    initMarquee("#marquee1");
+    initMarquee("#marquee2", 25); // with custom speed
+    initMarquee("#marquee3", 15, 60); // custom speed & gap
+  });
+  </script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      multiplier: 1,
+    });
+
+    scroll.on("scroll", ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+      scrollTop(value) {
+        return arguments.length
+          ? scroll.scrollTo(value, 0, 0)
+          : scroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+      pinType: document.querySelector("[data-scroll-container]").style.transform
+        ? "transform"
+        : "fixed",
+    });
+
+    ScrollTrigger.addEventListener("refresh", () => scroll.update());
+    ScrollTrigger.refresh();
+  </script>
+  <script>
+    gsap.to("#globeImage", {
+      rotate: 45, // rotation in degrees
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#globeImage",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+        scroller: "[data-scroll-container]",
+      },
+      transformOrigin: "50% 50%",
+    });
+  </script>
+  <script> 
+    document.querySelectorAll("[data-animated-button]").forEach((button) => {
+    const container = button.querySelector(".animated-text");
+    const circle = button.querySelector(".hover-circle");
+    const text = button.dataset.text || container.textContent.trim();
+    container.innerHTML = "";
+
+    const words = text.split(" ");
+    words.forEach((word, index) => {
+      const wordWrapper = document.createElement("span");
+      wordWrapper.className = "inline-flex";
+      if (index < words.length - 1) {
+        wordWrapper.classList.add("mr-[0.35ch]"); // mimic space
+      }
+
+      word.split("").forEach((char) => {
+        const outer = document.createElement("span");
+        outer.className = "relative inline-block leading-relaxed";
+        outer.innerHTML = `
+          <span class="block translate-y-0 char-top">${char}</span>
+          <span class="block absolute left-0 top-full translate-y-0 char-bottom">${char}</span>
+        `;
+        wordWrapper.appendChild(outer);
+      });
+
+      container.appendChild(wordWrapper);
+    });
+
+    // Hover animation
+    button.addEventListener("mouseenter", () => {
+      gsap.to(button.querySelectorAll(".char-top"), {
+        yPercent: -100,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+      gsap.to(button.querySelectorAll(".char-bottom"), {
+        yPercent: -100,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+    });
+
+    button.addEventListener("mouseleave", () => {
+      gsap.to(button.querySelectorAll(".char-top"), {
+        yPercent: 0,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+      gsap.to(button.querySelectorAll(".char-bottom"), {
+        yPercent: 0,
+        stagger: 0.015,
+        duration: 0.35,
+        ease: "power2.out",
+      });
+    });
+
+    // Ripple
+    button.addEventListener("mousemove", (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      circle.style.left = `${x}px`;
+      circle.style.top = `${y}px`;
+    });
+  });
+
+  </script>
+  
+</body>
+</html>
