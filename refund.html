@@ -169,45 +169,70 @@
     </nav>
 
     <!-- Hero Section with Search Bar -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content text-center" data-aos="fade-up">
-                <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
-                <p class="lead mb-5">Please verify your identity to proceed</p>
+   <section class="hero-section">
+  <div class="container">
+    <div class="hero-content text-center" data-aos="fade-up">
+      <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
+      <p class="lead mb-5">Please verify your identity to proceed</p>
 
-                <!-- Verification Type Selection -->
-                <div class="verification-type" data-aos="fade-up" data-aos-delay="100">
-                    <div class="verification-option active" id="kyc-option">
-                        <i class="fas fa-user verification-icon"></i>
-                        KYC (Individual)
-                    </div>
-                    <div class="verification-option" id="kyb-option">
-                        <i class="fas fa-building verification-icon"></i>
-                        KYB (Business)
-                    </div>
-                </div>
-
-                <!-- Search Bar -->
-                <div class="search-container" data-aos="fade-up" data-aos-delay="300">
-                    <form action="#" method="GET" id="verification-form">
-                        <input type="hidden" name="verification_type" id="verification_type" value="kyc">
-                        
-                        <label for="search-input" class="input-label" id="input-label">
-                            Enter your email address or Telegram ID
-                        </label>
-                        
-                        <div class="input-group">
-                            <input type="text" class="form-control search-input" id="search-input" 
-                                   placeholder="e.g., user@example.com or @telegram_username" required>
-                            <button class="search-btn" type="submit">
-                                <i class="fas fa-search"></i> Verify
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <!-- Verification Type Selection -->
+      <div class="verification-type" data-aos="fade-up" data-aos-delay="100">
+        <div class="verification-option active" id="kyc-option" onclick="setVerificationType('KYC')">
+          <i class="fas fa-user verification-icon"></i>
+          KYC (Individual)
         </div>
-    </section>
+        <div class="verification-option" id="kyb-option" onclick="setVerificationType('KYB')">
+          <i class="fas fa-building verification-icon"></i>
+          KYB (Business)
+        </div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container" data-aos="fade-up" data-aos-delay="300">
+        <form id="verification-form">
+          <input type="hidden" name="verification_type" id="verification_type" value="KYC">
+          
+          <label for="search-input" class="input-label" id="input-label">
+            Enter your email address or Telegram ID
+          </label>
+          
+          <div class="input-group">
+            <input type="text" class="form-control search-input" id="search-input" 
+                   placeholder="e.g., user@example.com or @telegram_username" required>
+            <button class="search-btn" type="submit">
+              <i class="fas fa-search"></i> Verify
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const scriptUrl = "https://script.google.com/macros/s/AKfycby0qGBHThlEiZH1_lNB7j4aGr_PSyWJXJUF7gXARGoSAM3lhQjt5rJajatmYVZ-Erc0/exec"; // <-- Replace with Apps Script Web App URL
+
+  function setVerificationType(type) {
+    document.getElementById("verification_type").value = type;
+    document.getElementById("kyc-option").classList.toggle("active", type === "KYC");
+    document.getElementById("kyb-option").classList.toggle("active", type === "KYB");
+  }
+
+  document.getElementById("verification-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const verificationType = document.getElementById("verification_type").value;
+    const userInput = document.getElementById("search-input").value;
+
+    const response = await fetch(scriptUrl, {
+      method: "POST",
+      body: JSON.stringify({ query: userInput, type: verificationType }),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const result = await response.json();
+    alert(result.message); // Show success or failure from Apps Script
+  });
+</script>
 
     <!--==================================
        Footer End Here
