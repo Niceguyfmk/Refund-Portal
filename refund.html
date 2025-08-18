@@ -168,8 +168,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Search Bar -->
-   <section class="hero-section">
+   <!-- Hero Section with Search Bar -->
+<section class="hero-section">
   <div class="container">
     <div class="hero-content text-center" data-aos="fade-up">
       <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
@@ -223,28 +223,28 @@
     const verificationType = document.getElementById("verification_type").value;
     const userInput = document.getElementById("search-input").value;
 
-    const response = await fetch(scriptUrl, {
-      method: "POST",
-      body: JSON.stringify({ query: userInput, type: verificationType }),
-      headers: { "Content-Type": "application/json" }
-    });
+    try {
+      const response = await fetch(scriptUrl, {
+        method: "POST",
+        body: JSON.stringify({ query: userInput, type: verificationType }),
+        headers: { "Content-Type": "application/json" }
+      });
 
-    const result = await response.json();
-    alert(result.message); // Show success or failure from Apps Script
+      const result = await response.json();
+
+      // ✅ Always show a generic success/failure message
+      if (result.success) {
+        alert("✅ Verification successful. Please check your email for further instructions.");
+      } else {
+        alert("❌ Verification failed. Please try again or contact support.");
+      }
+    } catch (error) {
+      alert("⚠️ Something went wrong. Please try again later.");
+      console.error(error);
+    }
   });
 </script>
 
-    <!--==================================
-       Footer End Here
-    ===================================-->
-
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/aos/dist/aos.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="assets/js/app.js"></script>
-    
-    <script>
         // Initialize AOS
         AOS.init({
             duration: 800,
