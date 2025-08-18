@@ -219,19 +219,29 @@
   }
 
   document.getElementById("verification-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const verificationType = document.getElementById("verification_type").value;
-    const userInput = document.getElementById("search-input").value;
+  e.preventDefault();
+  const verificationType = document.getElementById("verification_type").value;
+  const userInput = document.getElementById("search-input").value;
 
-    const response = await fetch(scriptUrl, {
+  try {
+    const response = await fetch("/verify", {
       method: "POST",
-      body: JSON.stringify({ query: userInput, type: verificationType }),
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: userInput, type: verificationType })
     });
 
     const result = await response.json();
-    alert(result.message); // Show success or failure from Apps Script
-  });
+
+    if (response.ok && result.message.includes("Success")) {
+      alert("✅ Verification successful. Please check your email for instructions.");
+    } else {
+      alert("❌ Verification failed. Please try again or contact support.");
+    }
+  } catch (error) {
+    alert("⚠️ Something went wrong. Please try again later.");
+    console.error(error);
+  }
+});
 </script>
 
     <!--==================================
