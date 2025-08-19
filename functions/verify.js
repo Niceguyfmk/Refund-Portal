@@ -2,10 +2,12 @@ export async function onRequestPost(context) {
   try {
     const { query } = await context.request.json();
 
-    // Load your CSV (for simplicity, store in KV or hardcode sample data)
-    // For production, upload CSV to KV or D1 database
-    const csvData = `Wallet,Source,File Name,Email ID,Telegram ID
-faiz,,,fkhan.codes@gmail.com,@faiz`;
+    // Fetch CSV file from your deployed Pages site
+    const csvResp = await fetch("https://<your-site>.pages.dev/Investor%20Details.csv");
+    if (!csvResp.ok) {
+      throw new Error("Failed to load CSV file");
+    }
+    const csvData = await csvResp.text();
 
     const rows = csvData.split("\n").slice(1); // skip header
     let match = false;
@@ -29,7 +31,7 @@ faiz,,,fkhan.codes@gmail.com,@faiz`;
 
     // Send email with SendGrid
     const SENDGRID_API_KEY = context.env.SENDGRID_API_KEY;
-    const SENDGRID_FROM = "fkhan.codes@gmail.com"; // change this
+    const SENDGRID_FROM = "fkhan.codes@gmail.com"; // your verified sender
     const SENDGRID_TO = query.includes("@") ? query : "fallback@yourdomain.com";
 
     const mailData = {
