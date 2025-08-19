@@ -31,14 +31,36 @@ export async function onRequestPost(context) {
 
     // Send email with SendGrid
     const SENDGRID_API_KEY = context.env.SENDGRID_API_KEY;
-    const SENDGRID_FROM = "fkhan.codes@gmail.com"; // your verified sender
+    const SENDGRID_FROM = "fkhan.codes@gmail.com"; // must be a verified sender in SendGrid
     const SENDGRID_TO = query.includes("@") ? query : "fallback@yourdomain.com";
 
     const mailData = {
       personalizations: [{ to: [{ email: SENDGRID_TO }] }],
       from: { email: SENDGRID_FROM },
-      subject: "Verification Successful",
-      content: [{ type: "text/plain", value: "Your verification was successful!" }],
+      subject: "Action Required: Complete Your KYC Verification",
+      content: [
+        {
+          type: "text/plain",
+          value: `Dear Investor,
+
+Your verification was successful. To complete the process, please proceed with KYC verification using Blockpass at the following link:
+
+👉 https://verify-with.blockpass.org/?clientId=refund_portal_00d03
+
+This step is required to finalize your registration.
+
+Thank you,
+Refund Portal Team`,
+        },
+        {
+          type: "text/html",
+          value: `<p>Dear Investor,</p>
+                  <p>Your verification was successful. To complete the process, please proceed with KYC verification using Blockpass at the following link:</p>
+                  <p><a href="https://verify-with.blockpass.org/?clientId=refund_portal_00d03" target="_blank">Complete KYC Verification</a></p>
+                  <p>This step is required to finalize your registration.</p>
+                  <p>Thank you,<br>Refund Portal Team</p>`,
+        },
+      ],
     };
 
     const sendResp = await fetch("https://api.sendgrid.com/v3/mail/send", {
@@ -51,7 +73,7 @@ export async function onRequestPost(context) {
     });
 
     if (sendResp.ok) {
-      return new Response(JSON.stringify({ message: "Success! Email sent." }), {
+      return new Response(JSON.stringify({ message: "Success! KYC email sent." }), {
         headers: { "Content-Type": "application/json" },
       });
     } else {
