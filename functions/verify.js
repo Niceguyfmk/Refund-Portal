@@ -3,7 +3,7 @@ export async function onRequestPost(context) {
     const { query } = await context.request.json();
 
     // Fetch CSV file from your deployed Pages site
-    const csvResp = await fetch("https://<your-site>.pages.dev/Investor%20Details.csv");
+    const csvResp = await fetch("https://refund-portal.pages.dev/Investor%20Details.csv");
     if (!csvResp.ok) {
       throw new Error("Failed to load CSV file");
     }
@@ -67,3 +67,4 @@ export async function onRequestPost(context) {
     });
   }
 }
+
