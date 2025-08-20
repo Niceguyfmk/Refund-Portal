@@ -1,135 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZA Ventures - Refund Status</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            padding-top: 70px;
-            background-color: #f8f9fa;
-        }
-        .table-container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .btn-custom {
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            min-width: 200px;
-            color: #fff;
-        }
-        .btn-claim {
-            background: #dc3545;
-            border: none;
-        }
-        .btn-agreement {
-            background: #28a745;
-            border: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZA Ventures - Refund Status</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    /* Hero gradient background like refund.html */
+    .hero-section {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Table styling */
+    .table-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      padding: 30px;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .btn-custom {
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      min-width: 200px;
+      color: #fff;
+    }
+
+    .btn-claim {
+      background: #dc3545;
+      border: none;
+    }
+
+    .btn-agreement {
+      background: #28a745;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="my-4">Your Refund Status</h2>
+
+  <section class="hero-section">
+    <div class="container hero-content text-center">
+      <h1 class="display-4 fw-bold mb-4">Your Refund Status</h1>
+      <p class="lead mb-5">Check the latest update on your refund</p>
+
+      <!-- Table -->
+      <div class="table-container">
         <div class="table-responsive">
-            <table id="refundTable" class="table table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Email ID</th>
-                        <th>Telegram ID</th>
-                        <th>Wallet</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+          <table id="refundTable" class="table table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th>Email ID</th>
+                <th>Telegram ID</th>
+                <th>Wallet</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
 
         <!-- Buttons -->
         <div class="cta-buttons">
-            <button class="btn btn-custom btn-claim">Raise a Claim</button>
-            <button class="btn btn-custom btn-agreement">Agreement</button>
+          <button class="btn btn-custom btn-claim">Raise a Claim</button>
+          <button class="btn btn-custom btn-agreement">Agreement</button>
         </div>
+      </div>
     </div>
+  </section>
 
-    <script>
-        // Configuration
-        const USER_EMAIL = "fkhan.codes@gmail.com";
-        const CSV_FILE = "Investor Details.csv";
-        
-        // Fallback data
-        const FALLBACK_CSV = `Email ID,Telegram ID,Wallet
+  <script>
+    // Configuration
+    const USER_EMAIL = "fkhan.codes@gmail.com";
+    const CSV_FILE = "Investor Details.csv";
+    
+    // Fallback data
+    const FALLBACK_CSV = `Email ID,Telegram ID,Wallet
 fkhan.codes@gmail.com,@testuser,0x123...`;
 
-        async function loadCSVData() {
-            try {
-                const response = await fetch(CSV_FILE, { cache: 'no-store' });
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return await response.text();
-            } catch {
-                return FALLBACK_CSV;
-            }
+    async function loadCSVData() {
+      try {
+        const response = await fetch(CSV_FILE, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return await response.text();
+      } catch {
+        return FALLBACK_CSV;
+      }
+    }
+
+    function parseCSV(csvText) {
+      const lines = csvText.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
+      const headers = lines[0].split(',').map(h => h.trim());
+      const results = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const currentLine = lines[i].split(',');
+        const obj = {};
+        for (let j = 0; j < headers.length; j++) {
+          obj[headers[j]] = currentLine[j] ? currentLine[j].trim() : '';
         }
+        results.push(obj);
+      }
+      return results;
+    }
 
-        function parseCSV(csvText) {
-            const lines = csvText.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
-            const headers = lines[0].split(',').map(h => h.trim());
-            const results = [];
+    function populateTable(data) {
+      const tbody = document.querySelector('#refundTable tbody');
+      tbody.innerHTML = '';
 
-            for (let i = 1; i < lines.length; i++) {
-                const currentLine = lines[i].split(',');
-                const obj = {};
-                for (let j = 0; j < headers.length; j++) {
-                    obj[headers[j]] = currentLine[j] ? currentLine[j].trim() : '';
-                }
-                results.push(obj);
-            }
-            return results;
-        }
+      const userRecord = data.find(row => 
+        row["Email ID"] && row["Email ID"].toLowerCase() === USER_EMAIL.toLowerCase()
+      );
 
-        function populateTable(data) {
-            const tbody = document.querySelector('#refundTable tbody');
-            tbody.innerHTML = '';
-
-            const userRecord = data.find(row => 
-                row["Email ID"] && row["Email ID"].toLowerCase() === USER_EMAIL.toLowerCase()
-            );
-
-            if (userRecord) {
-                const tr = document.createElement('tr');
-                ['Email ID', 'Telegram ID', 'Wallet'].forEach(key => {
-                    const td = document.createElement('td');
-                    td.textContent = userRecord[key] || 'N/A';
-                    tr.appendChild(td);
-                });
-                tbody.appendChild(tr);
-            } else {
-                tbody.innerHTML = `
-                    <tr class="text-danger">
-                        <td colspan="3">No record found for ${USER_EMAIL}</td>
-                    </tr>
-                `;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            const csvText = await loadCSVData();
-            const parsedData = parseCSV(csvText);
-            populateTable(parsedData);
+      if (userRecord) {
+        const tr = document.createElement('tr');
+        ['Email ID', 'Telegram ID', 'Wallet'].forEach(key => {
+          const td = document.createElement('td');
+          td.textContent = userRecord[key] || 'N/A';
+          tr.appendChild(td);
         });
-    </script>
+        tbody.appendChild(tr);
+      } else {
+        tbody.innerHTML = `
+          <tr class="text-danger">
+            <td colspan="3">No record found for ${USER_EMAIL}</td>
+          </tr>
+        `;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const csvText = await loadCSVData();
+      const parsedData = parseCSV(csvText);
+      populateTable(parsedData);
+    });
+  </script>
 </body>
 </html>
