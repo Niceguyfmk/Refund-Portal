@@ -1,318 +1,252 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZA Ventures - Refund Portal</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/libs/swiper/swiper-bundle.css">
-    <link rel="stylesheet" href="assets/libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/libs/remixicon/fonts/remixicon.css">
-    <link rel="stylesheet" href="assets/libs/aos/dist/aos.css">
-    <link rel="stylesheet" href="assets/fonts/fonts.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <style>
-        /* Custom styles */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .navbar-brand img {
-            height: 40px;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            padding: 150px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .search-input {
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: none;
-            width: 100%;
-            font-size: 18px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            bottom: 5px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 0 25px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .search-btn:hover {
-            background: #0069d9;
-        }
-        
-        .verification-type {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 20px;
-        }
-        
-        .verification-option {
-            padding: 15px 30px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .verification-option:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .verification-option.active {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: white;
-            font-weight: bold;
-        }
-        
-        .verification-icon {
-            margin-right: 10px;
-        }
-        
-        .input-label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZA Ventures - Refund Portal</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/libs/remixicon/fonts/remixicon.css">
+  <link rel="stylesheet" href="assets/libs/aos/dist/aos.css">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      padding: 150px 0;
+      position: relative;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .search-input {
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: none;
+      width: 100%;
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .search-btn:hover {
+      background: #0069d9;
+    }
+
+    .verification-type {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+
+    .verification-option {
+      padding: 15px 30px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .verification-option:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .verification-option.active {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: white;
+      font-weight: bold;
+    }
+
+    .verification-icon {
+      margin-right: 10px;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-weight: 500;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/aza-ventures-logo.png" alt="AZA Ventures">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="refund.html">Refund Portal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="table.html">Refund Table</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section with Search Bar -->
-   <section class="hero-section">
-  <div class="container">
-    <div class="hero-content text-center" data-aos="fade-up">
-      <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
-      <p class="lead mb-5">Please verify your identity to proceed</p>
-
-      <!-- Verification Type Selection -->
-      <div class="verification-type" data-aos="fade-up" data-aos-delay="100">
-        <div class="verification-option active" id="kyc-option" onclick="setVerificationType('KYC')">
-          <i class="fas fa-user verification-icon"></i>
-          KYC (Individual)
-        </div>
-        <div class="verification-option" id="kyb-option" onclick="setVerificationType('KYB')">
-          <i class="fas fa-building verification-icon"></i>
-          KYB (Business)
-        </div>
-      </div>
-
-      <!-- Search Bar -->
-      <div class="search-container" data-aos="fade-up" data-aos-delay="300">
-        <form id="verification-form">
-          <input type="hidden" name="verification_type" id="verification_type" value="KYC">
-          
-          <label for="search-input" class="input-label" id="input-label">
-            Enter your email address or Telegram ID
-          </label>
-          
-          <div class="input-group">
-            <input type="text" class="form-control search-input" id="search-input" 
-                   placeholder="e.g., user@example.com or @telegram_username" required>
-            <button class="search-btn" type="submit">
-              <i class="fas fa-search"></i> Verify
-            </button>
-          </div>
-        </form>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/aza-ventures-logo.png" alt="AZA Ventures" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="refund.html">Refund Portal</a></li>
+          <li class="nav-item"><a class="nav-link" href="table.html">Refund Table</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<script>
-  const scriptUrl = "https://script.google.com/macros/s/AKfycby0qGBHThlEiZH1_lNB7j4aGr_PSyWJXJUF7gXARGoSAM3lhQjt5rJajatmYVZ-Erc0/exec"; // <-- Replace with Apps Script Web App URL
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content text-center" data-aos="fade-up">
+        <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
+        <p class="lead mb-5">Please verify your identity to proceed</p>
 
-  function setVerificationType(type) {
-    document.getElementById("verification_type").value = type;
-    document.getElementById("kyc-option").classList.toggle("active", type === "KYC");
-    document.getElementById("kyb-option").classList.toggle("active", type === "KYB");
-  }
+        <!-- Verification Type -->
+        <div class="verification-type" data-aos="fade-up" data-aos-delay="100">
+          <div class="verification-option active" id="kyc-option">
+            <i class="fas fa-user verification-icon"></i> KYC (Individual)
+          </div>
+          <div class="verification-option" id="kyb-option">
+            <i class="fas fa-building verification-icon"></i> AML
+          </div>
+        </div>
 
-  document.getElementById("verification-form").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const verificationType = document.getElementById("verification_type").value;
-  const userInput = document.getElementById("search-input").value;
+        <!-- Wallet Verification -->
+        <div class="search-container" data-aos="fade-up" data-aos-delay="300">
+          <form id="verification-form" class="d-flex flex-column align-items-center">
+            <label for="search-input" class="input-label" id="input-label">Enter your Wallet ID</label>
+            <input type="text" class="form-control search-input mb-3" id="search-input"
+                   placeholder="Wallet ID" required>
+            <button class="search-btn" type="submit"><i class="fas fa-search"></i> Verify</button>
+            <div id="error-message" class="error-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  try {
-    const response = await fetch("/verify", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: userInput, type: verificationType })
+  <!-- Scripts -->
+  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="assets/libs/aos/dist/aos.js"></script>
+  <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="assets/js/app.js"></script>
+
+  <script>
+    // Init AOS
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+
+    // Form submit
+    document.getElementById("verification-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const walletId = document.getElementById("search-input").value.trim().toLowerCase();
+      const errorBox = document.getElementById("error-message");
+
+      if (!walletId) {
+        errorBox.textContent = "⚠️ Please enter a valid Wallet ID";
+        errorBox.style.display = "block";
+        return;
+      }
+
+      const CSV_FILE = "Investor Details.csv";
+      try {
+        const response = await fetch(CSV_FILE, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const text = await response.text();
+        const lines = text.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
+        const headers = lines[0].split(',').map(h => h.trim());
+        let walletIndex = headers.findIndex(h => h.toLowerCase() === 'wallet');
+        if (walletIndex === -1) {
+          errorBox.textContent = "⚠️ Wallet column not found in CSV.";
+          errorBox.style.display = "block";
+          return;
+        }
+        let found = false;
+        for (let i = 1; i < lines.length; i++) {
+          const row = lines[i].split(',');
+          if ((row[walletIndex] || '').trim().toLowerCase() === walletId) {
+            found = true; break;
+          }
+        }
+        if (found) {
+          window.location.href = `table.html?wallet=${encodeURIComponent(walletId)}`;
+        } else {
+          errorBox.textContent = "❌ Incorrect Wallet ID, please input a correct one.";
+          errorBox.style.display = "block";
+        }
+      } catch (error) {
+        errorBox.textContent = "⚠️ Could not check Wallet ID. Please try again later.";
+        errorBox.style.display = "block";
+        console.error(error);
+      }
     });
 
-    const result = await response.json();
+    // Hide error when typing
+    document.getElementById("search-input").addEventListener("input", function () {
+      document.getElementById("error-message").style.display = "none";
+    });
 
-    if (response.ok && result.message.includes("Success")) {
-      alert("✅ Verification successful. Please check your email for instructions.");
-    } else {
-      alert("❌ Verification failed. Please try again or contact support.");
-    }
-  } catch (error) {
-    alert("⚠️ Something went wrong. Please try again later.");
-    console.error(error);
-  }
-});
-</script>
+    // Verification switch
+    $(document).ready(function () {
+      $('#kyc-option').addClass('active');
+      $('#kyb-option').removeClass('active');
 
-    <!--==================================
-       Footer End Here
-    ===================================-->
+      $('#kyc-option').click(function () {
+        $(this).addClass('active');
+        $('#kyb-option').removeClass('active');
+        $('#input-label').text('Enter your Wallet ID');
+        $('#search-input').attr('placeholder', 'Wallet ID');
+      });
 
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/aos/dist/aos.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="assets/js/app.js"></script>
-    
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Verification type selection
-        $(document).ready(function() {
-            // Set initial active state
-            $('#kyc-option').addClass('active');
-            $('#kyb-option').removeClass('active');
-            $('#verification_type').val('kyc');
-            
-            // KYC option click handler
-            $('#kyc-option').click(function() {
-                $(this).addClass('active');
-                $('#kyb-option').removeClass('active');
-                $('#verification_type').val('kyc');
-                $('#input-label').text('Enter your email address or Telegram ID');
-                $('#search-input').attr('placeholder', 'e.g., user@example.com or @telegram_username');
-            });
-            
-            // KYB option click handler
-            $('#kyb-option').click(function() {
-                $(this).addClass('active');
-                $('#kyc-option').removeClass('active');
-                $('#verification_type').val('kyb');
-                $('#input-label').text('Enter your business email or official Telegram ID');
-                $('#search-input').attr('placeholder', 'e.g., admin@company.com or @company_official');
-            });
-            
-            // Form submission
-            $('#verification-form').submit(function(e) {
-                e.preventDefault();
-                
-                const verificationType = $('#verification_type').val();
-                const searchValue = $('#search-input').val().trim();
-                
-                if (!searchValue) {
-                    alert('Please enter a valid email or Telegram ID');
-                    return;
-                }
-                
-                // Here you would typically make an AJAX call to your backend
-                
-                
-                // For demo purposes, we'll just show an alert
-                
-
-                
-                // In a real implementation, you would redirect or show results here
-                // window.location.href = `/verify?type=${verificationType}&id=${encodeURIComponent(searchValue)}`;
-            });
-        });
-    </script>
+      $('#kyb-option').click(function () {
+        $(this).addClass('active');
+        $('#kyc-option').removeClass('active');
+        $('#input-label').text('Enter your Wallet ID');
+        $('#search-input').attr('placeholder', 'Wallet ID');
+      });
+    });
+  </script>
 </body>
 </html>

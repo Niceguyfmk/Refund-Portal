@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Plan - Refund Status</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #e5ffc3 !important;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;  
+            align-items: center;    
+            min-height: 100vh;     
+        }
+
+        .refund-card {
+            background: #eac2ff;
+            color: #3d065f;
+            border-radius: 1rem;
+            padding: 2.5rem 6rem;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .refund-card h2 {
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-control {
+            border-radius: 0.75rem;
+            border: none;
+            font-size: 1.1rem;
+            padding: 0.9rem 1rem;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-custom {
+            background: #fff;
+            color: #1A0565;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #f3dbff;
+            color: #1A0565;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="refund-card shadow-lg">
+            <h2 class="text-center">💰 Refund Payment Plan</h2>
+
+            <!-- Refund Summary -->
+            <div class="mb-4">
+                <label for="amountToRefund" class="form-label">Balance to be Paid ($)</label>
+                <input type="number" id="amountToRefund" class="form-control" value="10000" readonly>
+            </div>
+
+            <div class="mb-4">
+                <label for="amountRefunded" class="form-label">Refund Already Done ($)</label>
+                <input type="number" id="amountRefunded" class="form-control" value="2500" readonly>
+            </div>
+
+            <div class="mb-4">
+                <label for="nextTranche" class="form-label">Next Tranche to be Paid</label>
+                <div class="form-control bg-light">10% of balance to be paid</div>
+            </div>
+
+            <!-- Save Plan -->
+            <div class="mt-4 text-center">
+                <a id="agreementLink" class="btn btn-custom">Go to Agreement</a>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+// Get wallet from URL (same as table.html)
+function getWalletIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    console.log('Wallet from URL:', params.get('wallet'));
+    return (params.get('wallet') || '').toLowerCase();
+}
+const WALLET_ID = getWalletIdFromUrl();
+
+async function loadPivotData() {
+    try {
+        const response = await fetch('Pivot Table 2.csv', { cache: 'no-store' });
+        if (!response.ok) throw new Error('CSV not found');
+        const text = await response.text();
+        return text;
+    } catch (e) {
+        console.error('Failed to load CSV:', e);
+        return null;
+    }
+}
+
+// CSV-safe split (handles quoted values with commas)
+function splitCSVLine(line) {
+    const result = [];
+    let current = '';
+    let insideQuotes = false;
+
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+
+        if (char === '"' && line[i + 1] === '"') {
+            current += '"'; // escaped quote
+            i++;
+        } else if (char === '"') {
+            insideQuotes = !insideQuotes;
+        } else if (char === ',' && !insideQuotes) {
+            result.push(current.trim());
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    result.push(current.trim());
+    return result;
+}
+
+function parseCSV(csvText) {
+    const lines = csvText.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
+    const headers = splitCSVLine(lines[0]);
+    console.log('CSV Headers:', headers);
+
+    return lines.slice(1).map(line => {
+        const values = splitCSVLine(line);
+        const obj = {};
+        headers.forEach((h, j) => {
+            obj[h] = values[j] ? values[j].replace(/"/g, '').trim() : '';
+        });
+        return obj;
+    });
+}
+
+// Clean commas & negatives properly
+function parseNumber(value) {
+    if (!value) return 0;
+    return parseFloat(value.toString().replace(/,/g, '').trim()) || 0;
+}
+
+async function populateRefundFields() {
+    const csvText = await loadPivotData();
+    if (!csvText) {
+        document.getElementById('amountToRefund').value = '0';
+        document.getElementById('amountRefunded').value = '0';
+        return;
+    }
+
+    const data = parseCSV(csvText);
+
+    // Get all rows for this wallet
+    const userRecords = data.filter(row => (row['Wallet'] || '').toLowerCase() === WALLET_ID);
+    console.log(`Rows found for wallet ${WALLET_ID}:`, userRecords);
+
+    if (userRecords.length > 0) {
+        let totalBalance = 0;
+        let totalRefunded = 0;
+
+        userRecords.forEach(row => {
+            totalBalance += parseNumber(row['Balance to be Paid']);
+            totalRefunded += parseNumber(row['Refund Already Done']);
+        });
+
+        document.getElementById('amountToRefund').value = Math.abs(totalBalance);
+        document.getElementById('amountRefunded').value = Math.abs(totalRefunded);
+    } else {
+        document.getElementById('amountToRefund').value = '0';
+        document.getElementById('amountRefunded').value = '0';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', populateRefundFields);
+document.addEventListener("DOMContentLoaded", () => {
+    const wallet = WALLET_ID; // already available
+    const refund = document.getElementById("amountToRefund").value;
+
+    // Build URL with query params
+    const link = document.getElementById("agreementLink");
+    link.href = `agreement.html?wallet=${encodeURIComponent(wallet)}&refund=${encodeURIComponent(refund)}`;
+});
+</script>
+
+</body>
+
+</html>
