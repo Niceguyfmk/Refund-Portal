@@ -97,7 +97,7 @@
       return {
         wallet: (p.get("wallet") || "").toLowerCase(),
         refund: p.get("refund") || "0",
-        refunded: p.get("refunded") || "0"
+        toBeRefund: p.get("toBeRefund") || "0"
       };
     }
 
@@ -139,6 +139,7 @@
           email: email,
           wallet: wallet,
           amountToRefund: amountToRefund,
+          refundThisBatch: toBeRefund,
           ip: ip,
           dateAgreed: new Date().toISOString()
         };
@@ -158,7 +159,7 @@
          
         })
         .catch(err => {
-          console.error("❌ Error submitting agreement:", err);
+          console.error("Error submitting agreement:", err);
           alert("Something went wrong submitting your agreement.");
         });
       });
