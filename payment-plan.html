@@ -215,6 +215,14 @@ async function populateRefundFields() {
 
         document.getElementById('amountToRefund').value = Math.abs(totalBalance);
         document.getElementById('amountRefunded').value = Math.abs(totalRefunded);
+
+        const wallet = WALLET_ID; // already available
+        const refund = document.getElementById("amountToRefund").value;
+        console.log(refund);
+    
+        // Build URL with query params
+        const link = document.getElementById("agreementLink");
+        link.href = `agreement.html?wallet=${encodeURIComponent(wallet)}&refund=${encodeURIComponent(refund)}`;
     } else {
         document.getElementById('amountToRefund').value = '0';
         document.getElementById('amountRefunded').value = '0';
@@ -222,15 +230,7 @@ async function populateRefundFields() {
 }
 
 document.addEventListener('DOMContentLoaded', populateRefundFields);
-document.addEventListener("DOMContentLoaded", () => {
-    const wallet = WALLET_ID; // already available
-    const refund = document.getElementById("amountToRefund").value;
-    console.log(refund);
 
-    // Build URL with query params
-    const link = document.getElementById("agreementLink");
-    link.href = `agreement.html?wallet=${encodeURIComponent(wallet)}&refund=${encodeURIComponent(refund)}`;
-});
 </script>
 
 </body>
