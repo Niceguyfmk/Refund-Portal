@@ -224,7 +224,7 @@ async function populateRefundFields() {
 document.addEventListener('DOMContentLoaded', populateRefundFields);
 document.addEventListener("DOMContentLoaded", () => {
     const wallet = WALLET_ID; // already available
-    const refund = document.getElementById("amountToRefund").value;
+    const refund = document.getElementById("amountToRefund").value = Math.abs(totalBalance);;
 
     // Build URL with query params
     const link = document.getElementById("agreementLink");
