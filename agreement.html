@@ -134,8 +134,9 @@
           alert("Please agree before submitting."); return;
         }
 
+        const email = document.getElementById("agreementEmail").value
         const payload = {
-          email: document.getElementById("agreementEmail").value,
+          email: email,
           wallet: wallet,
           amountToRefund: amountToRefund,
           ip: ip,
@@ -151,7 +152,10 @@
         })
         .then(() => {
           // cannot read response in no-cors; assume success and redirect
-          window.location.href = "success.html";
+          // Assume payload.email exists
+          window.location.href = "success.html?email=" + encodeURIComponent(email);
+
+         
         })
         .catch(err => {
           console.error("❌ Error submitting agreement:", err);
