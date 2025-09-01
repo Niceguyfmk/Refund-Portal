@@ -218,11 +218,11 @@ async function populateRefundFields() {
 
         const wallet = WALLET_ID; // already available
         const refund = document.getElementById("amountToRefund").value;
-        console.log(refund);
+        const toBeRefund = refund * 0.1;
     
         // Build URL with query params
         const link = document.getElementById("agreementLink");
-        link.href = `agreement.html?wallet=${encodeURIComponent(wallet)}&refund=${encodeURIComponent(refund)}`;
+        link.href = `agreement.html?wallet=${encodeURIComponent(wallet)}&refund=${encodeURIComponent(refund)}&toBeRefund=${encodeURIComponent(toBeRefund)}`;
     } else {
         document.getElementById('amountToRefund').value = '0';
         document.getElementById('amountRefunded').value = '0';
