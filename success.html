@@ -99,14 +99,14 @@
   const email = params.get("email");
 
   if (email) {
-    // Show it on the page or use it however you like
-    document.getElementById("email").value = email;
-  }
-        const blockpass = new BlockpassKYCConnect("refund_portal_00d03", {
+           const blockpass = new BlockpassKYCConnect("refund_portal_00d03", {
         refId: email,    // Use the email as refId
         email: email     // Optionally prefill the email in the widget form
-  });
+  }
+
+  );
         blockpass.startKYCConnect();
+  }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
