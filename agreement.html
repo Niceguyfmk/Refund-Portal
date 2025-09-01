@@ -71,6 +71,11 @@
           </div>
 
           <div class="mb-3 d-none">
+            <label class="form-label" for="agreementAmountBatch">Amount to Refunded This Batch</label>
+            <input type="text" class="form-control" id="agreementAmountBatch" readonly />
+          </div>
+
+          <div class="mb-3 d-none">
             <label class="form-label" for="agreementIP">IP Address</label>
             <input type="text" class="form-control" id="agreementIP" readonly />
           </div>
@@ -120,11 +125,14 @@
       // Resolve values: URL param -> localStorage -> empty
       const wallet = params.wallet || localStorage.getItem("wallet") || "";
       const amountToRefund = params.refund || localStorage.getItem("amountToRefund") || "";
+      const amountToRefundThisBatch = params.toBeRefund || localStorage.getItem("amountToRefundThisBatch") || "";
+      
       const ip = await getIP();
 
       // Prefill
       document.getElementById("agreementWallet").value = wallet;
-      document.getElementById("agreementAmount").value = amountToRefund;
+      document.getElementById("agreementAmount").value = amountToRefund;agreementAmountBatch
+      document.getElementById("agreementAmountBatch").value = amountToRefundThisBatch;
       document.getElementById("agreementIP").value = ip;
 
       // Submit
@@ -139,7 +147,7 @@
           email: email,
           wallet: wallet,
           amountToRefund: amountToRefund,
-          refundThisBatch: toBeRefund,
+          amountToRefundThisBatch: amountToRefundThisBatch,
           ip: ip,
           dateAgreed: new Date().toISOString()
         };
