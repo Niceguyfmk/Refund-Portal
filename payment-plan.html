@@ -8,7 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: #e5ffc3 !important;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
         }
 
         body, html {
@@ -24,8 +28,8 @@
         }
 
         .refund-card {
-            background: #eac2ff;
-            color: #3d065f;
+            background: #3d065f;
+            color: #eac2ff;
             border-radius: 1rem;
             padding: 2.5rem 6rem;
             max-width: 600px;
@@ -70,6 +74,21 @@
             background: #f3dbff;
             color: #1A0565;
             transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .refund-card {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .form-label {
+                font-size: 1.2rem;
+            }
+
+            .form-control {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>

@@ -26,17 +26,6 @@
             min-height: 100vh;
         }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
         .hero-content {
             position: relative;
             z-index: 2;
@@ -93,8 +82,8 @@
             <div class="success-card">
                 <h1><i class="fas fa-check-circle"></i> Agreement Submitted</h1>
                 <p>Thank you for submitting your agreement.</p>
-                <p>Please complete your Blockpass verification to receive your Refund.</p>
-                <button id="blockpass-kyc-connect">Connect with Blockpass</button>
+                <p>Please complete your Blockpass verification using email you submitted for Agreement to receive your Refund.</p>
+                <button id="blockpass-kyc-connect" class="btn btn-success">Connect with Blockpass</button>
 
                 <div class="d-flex justify-content-center gap-3 mt-4">
                     <!-- <a href="index.html" class="btn btn-custom btn-home">

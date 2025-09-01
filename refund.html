@@ -1,252 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZA Ventures - Refund Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZA Ventures - Refund Portal</title>
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/libs/remixicon/fonts/remixicon.css">
-  <link rel="stylesheet" href="assets/libs/aos/dist/aos.css">
-  <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/libs/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="assets/libs/aos/dist/aos.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: #333;
-      line-height: 1.6;
-    }
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
 
-    .hero-section {
-      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-      color: white;
-      padding: 150px 0;
-      position: relative;
-    }
+        .hero-section {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            min-height: 100vh;
+            display: flex;  
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-    .search-container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .search-input {
-      padding: 15px 20px;
-      border-radius: 50px;
-      border: none;
-      width: 100%;
-      font-size: 18px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
+        .search-input {
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            width: 100%;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-    .search-btn {
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 10px 30px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
+        .search-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
 
-    .search-btn:hover {
-      background: #0069d9;
-    }
+        .search-btn:hover {
+            background: #0069d9;
+        }
 
-    .verification-type {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 30px;
-      gap: 20px;
-    }
+        .verification-type {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
 
-    .verification-option {
-      padding: 15px 30px;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      cursor: pointer;
-      transition: all 0.3s;
-      border: 2px solid transparent;
-    }
+        .verification-option {
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
 
-    .verification-option:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
+        .verification-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
 
-    .verification-option.active {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: white;
-      font-weight: bold;
-    }
+        .verification-option.active {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+            font-weight: bold;
+        }
 
-    .verification-icon {
-      margin-right: 10px;
-    }
+        .verification-icon {
+            margin-right: 10px;
+        }
 
-    .input-label {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 24px;
-      font-weight: 500;
-    }
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 500;
+        }
 
-    .error-message {
-      color: #ff4d4d;
-      font-weight: 500;
-      margin-top: 10px;
-      display: none;
-    }
-  </style>
+        .error-message {
+            color: #ff4d4d;
+            font-weight: 500;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="assets/img/aza-ventures-logo.png" alt="AZA Ventures" height="40">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-          <li class="nav-item"><a class="nav-link active" href="refund.html">Refund Portal</a></li>
-          <li class="nav-item"><a class="nav-link" href="table.html">Refund Table</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content text-center" data-aos="fade-up">
-        <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
-        <p class="lead mb-5">Please verify your identity to proceed</p>
-
-        <!-- Verification Type -->
-        <div class="verification-type" data-aos="fade-up" data-aos-delay="100">
-          <div class="verification-option active" id="kyc-option">
-            <i class="fas fa-user verification-icon"></i> KYC (Individual)
-          </div>
-          <div class="verification-option" id="kyb-option">
-            <i class="fas fa-building verification-icon"></i> AML
-          </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/aza-ventures-logo.png" alt="AZA Ventures" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="refund.html">Refund Portal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="table.html">Refund Table</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <!-- Wallet Verification -->
-        <div class="search-container" data-aos="fade-up" data-aos-delay="300">
-          <form id="verification-form" class="d-flex flex-column align-items-center">
-            <label for="search-input" class="input-label" id="input-label">Enter your Wallet ID</label>
-            <input type="text" class="form-control search-input mb-3" id="search-input"
-                   placeholder="Wallet ID" required>
-            <button class="search-btn" type="submit"><i class="fas fa-search"></i> Verify</button>
-            <div id="error-message" class="error-message"></div>
-          </form>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center" data-aos="fade-up">
+                <h1 class="display-4 fw-bold mb-4">Refund Portal</h1>
+                <p class="lead mb-5">Please verify your identity to proceed</p>
+
+                <!-- Wallet Verification -->
+                <div class="search-container" data-aos="fade-up" data-aos-delay="300">
+                    <form id="verification-form" class="d-flex flex-column align-items-center">
+                        <label for="search-input" class="input-label" id="input-label">Enter your Wallet ID</label>
+                        <input type="text" class="form-control search-input mb-3" id="search-input"
+                            placeholder="Wallet ID" required>
+                        <button class="search-btn" type="submit"><i class="fas fa-search"></i> Verify</button>
+                        <div id="error-message" class="error-message"></div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Scripts -->
-  <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="assets/libs/aos/dist/aos.js"></script>
-  <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="assets/js/app.js"></script>
+    <!-- Scripts -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/aos/dist/aos.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js"></script>
 
-  <script>
-    // Init AOS
-    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+    <script>
+        // Init AOS
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
-    // Form submit
-    document.getElementById("verification-form").addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const walletId = document.getElementById("search-input").value.trim().toLowerCase();
-      const errorBox = document.getElementById("error-message");
+        // Form submit
+        document.getElementById("verification-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const walletId = document.getElementById("search-input").value.trim().toLowerCase();
+            const errorBox = document.getElementById("error-message");
 
-      if (!walletId) {
-        errorBox.textContent = "⚠️ Please enter a valid Wallet ID";
-        errorBox.style.display = "block";
-        return;
-      }
+            if (!walletId) {
+                errorBox.textContent = "⚠️ Please enter a valid Wallet ID";
+                errorBox.style.display = "block";
+                return;
+            }
 
-      const CSV_FILE = "Investor Details.csv";
-      try {
-        const response = await fetch(CSV_FILE, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        const text = await response.text();
-        const lines = text.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
-        const headers = lines[0].split(',').map(h => h.trim());
-        let walletIndex = headers.findIndex(h => h.toLowerCase() === 'wallet');
-        if (walletIndex === -1) {
-          errorBox.textContent = "⚠️ Wallet column not found in CSV.";
-          errorBox.style.display = "block";
-          return;
-        }
-        let found = false;
-        for (let i = 1; i < lines.length; i++) {
-          const row = lines[i].split(',');
-          if ((row[walletIndex] || '').trim().toLowerCase() === walletId) {
-            found = true; break;
-          }
-        }
-        if (found) {
-          window.location.href = `table.html?wallet=${encodeURIComponent(walletId)}`;
-        } else {
-          errorBox.textContent = "❌ Incorrect Wallet ID, please input a correct one.";
-          errorBox.style.display = "block";
-        }
-      } catch (error) {
-        errorBox.textContent = "⚠️ Could not check Wallet ID. Please try again later.";
-        errorBox.style.display = "block";
-        console.error(error);
-      }
-    });
+            const CSV_FILE = "Investor Details.csv";
+            try {
+                const response = await fetch(CSV_FILE, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const text = await response.text();
+                const lines = text.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
+                const headers = lines[0].split(',').map(h => h.trim());
+                let walletIndex = headers.findIndex(h => h.toLowerCase() === 'wallet');
+                if (walletIndex === -1) {
+                    errorBox.textContent = "⚠️ Wallet column not found in CSV.";
+                    errorBox.style.display = "block";
+                    return;
+                }
+                let found = false;
+                for (let i = 1; i < lines.length; i++) {
+                    const row = lines[i].split(',');
+                    if ((row[walletIndex] || '').trim().toLowerCase() === walletId) {
+                        found = true; break;
+                    }
+                }
+                if (found) {
+                    window.location.href = `table.html?wallet=${encodeURIComponent(walletId)}`;
+                } else {
+                    errorBox.textContent = "Incorrect Wallet ID, please input a correct one.";
+                    errorBox.style.display = "block";
+                }
+            } catch (error) {
+                errorBox.textContent = "Could not check Wallet ID. Please try again later.";
+                errorBox.style.display = "block";
+                console.error(error);
+            }
+        });
 
-    // Hide error when typing
-    document.getElementById("search-input").addEventListener("input", function () {
-      document.getElementById("error-message").style.display = "none";
-    });
-
-    // Verification switch
-    $(document).ready(function () {
-      $('#kyc-option').addClass('active');
-      $('#kyb-option').removeClass('active');
-
-      $('#kyc-option').click(function () {
-        $(this).addClass('active');
-        $('#kyb-option').removeClass('active');
-        $('#input-label').text('Enter your Wallet ID');
-        $('#search-input').attr('placeholder', 'Wallet ID');
-      });
-
-      $('#kyb-option').click(function () {
-        $(this).addClass('active');
-        $('#kyc-option').removeClass('active');
-        $('#input-label').text('Enter your Wallet ID');
-        $('#search-input').attr('placeholder', 'Wallet ID');
-      });
-    });
-  </script>
+        // Hide error when typing
+        document.getElementById("search-input").addEventListener("input", function () {
+            document.getElementById("error-message").style.display = "none";
+        });
+    </script>
 </body>
+
 </html>

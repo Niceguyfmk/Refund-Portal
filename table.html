@@ -25,17 +25,6 @@
             min-height: 100vh;
         }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
         .hero-content {
             position: relative;
             z-index: 2;
@@ -151,22 +140,28 @@
                     <h5 class="modal-title fw-bold" id="issueModalLabel">Report an Issue</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body text-dark">
-                    <div class="mb-3">
-                        <p> Only claims and objections for <b>missing allocation</b> and
-                            <b>secondary OTC deal calculations will be entertained </b>.<br><br>
-                            Objections raised on Calculation of PnL will be <b>ignored</b>,
-                            as it is final and as per the date of the distribution.
-                        </p>
-                        <label for="issueText" class="form-label">Are you facing any issues?</label>
-                        <textarea class="form-control" id="issueText" rows="4"
-                            placeholder="Describe your issue here..."></textarea>
+                <form id="web3form-issue" action="https://api.web3forms.com/submit" method="POST" class="needs-validation" novalidate>
+                    <div class="modal-body text-dark">
+                        <div class="mb-3">
+                            <p> Only claims and objections for <b>missing allocation</b> and
+                                <b>secondary OTC deal calculations will be entertained </b>.<br><br>
+                                Objections raised on Calculation of PnL will be <b>ignored</b>,
+                                as it is final and as per the date of the distribution.
+                            </p>
+                            <input type="hidden" name="access_key" value="a4e13dff-7f35-4b30-8f04-5d2cc95e2869">
+                            <input type="hidden" name="wallet_id" id="web3formWalletId">
+                            <label for="issueText" class="form-label">Are you facing any issues?</label>
+                            <textarea class="form-control" id="issueText" name="issue" rows="4" placeholder="Describe your issue here..." required></textarea>
+                            <div class="invalid-feedback">Please describe your issue before submitting.</div>
+                        </div>
+                        <div id="web3form-success" class="alert alert-success d-none mt-2">Thank you for your feedback! We have received your issue.</div>
+                        <div id="web3form-error" class="alert alert-danger d-none mt-2">There was an error submitting your issue. Please try again later.</div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="submitIssueBtn">Submit</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="submitIssueBtn">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -179,20 +174,45 @@
         // Show the issue modal when "Claims & Objections" is clicked
         document.getElementById("objBtn").addEventListener("click", function (e) {
             e.preventDefault();
+            // Set wallet id in hidden field for web3form
+            document.getElementById('web3formWalletId').value = WALLET_ID;
             const issueModal = new bootstrap.Modal(document.getElementById('issueModal'));
             issueModal.show();
         });
 
-        // Handle submit button in the modal
-        document.getElementById("submitIssueBtn").addEventListener("click", function () {
-            const issueText = document.getElementById("issueText").value.trim();
-            if (!issueText) {
-                alert("Please describe your issue before submitting.");
+        // Web3Forms integration for issue modal
+        document.getElementById('web3form-issue').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = this;
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
                 return;
             }
-            alert("Thank you for your feedback! We have received your issue.");
-            bootstrap.Modal.getInstance(document.getElementById('issueModal')).hide();
-            document.getElementById("issueText").value = "";
+            // Hide previous messages
+            document.getElementById('web3form-success').classList.add('d-none');
+            document.getElementById('web3form-error').classList.add('d-none');
+
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if (result.success) {
+                    document.getElementById('web3form-success').classList.remove('d-none');
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    setTimeout(() => {
+                        bootstrap.Modal.getInstance(document.getElementById('issueModal')).hide();
+                        document.getElementById('web3form-success').classList.add('d-none');
+                    }, 2000);
+                } else {
+                    document.getElementById('web3form-error').classList.remove('d-none');
+                }
+            } catch (err) {
+                document.getElementById('web3form-error').classList.remove('d-none');
+            }
         });
 
         // Get walletId from URL query parameter
