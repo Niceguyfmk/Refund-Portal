@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+l<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -38,18 +38,10 @@
 <body>
   <section class="hero-section">
     <div class="container hero-content text-center py-5">
-      <h1 class="display-4 fw-bold mb-2">Agreement Form</h1>
-      <p class="lead mb-4">Please confirm your details below</p>
+      <h1 class="display-4 fw-bold mb-2">Email for KYC</h1>
+      <p class="lead mb-4">Please confirm your email below</p>
 
       <div class="form-container text-start">
-        <div class="mb-4">
-          <h5 class="mb-2">Confidentiality Agreement</h5>
-          <p class="mb-0" style="font-size:.98rem;">
-            By proceeding, you agree to keep all information, communications, and documents related to this refund process strictly confidential.
-            You shall not disclose any details to third parties without explicit written consent from AZA Ventures. Breach of this agreement may result in legal action.
-          </p>
-        </div>
-
         <form id="agreementForm">
           <div class="mb-3">
             <label class="form-label" for="agreementEmail">
@@ -66,16 +58,6 @@
           </div>
 
           <div class="mb-3 d-none">
-            <label class="form-label" for="agreementAmount">Amount to Refund</label>
-            <input type="text" class="form-control" id="agreementAmount" readonly />
-          </div>
-
-          <div class="mb-3 d-none">
-            <label class="form-label" for="agreementAmountBatch">Amount to Refunded This Batch</label>
-            <input type="text" class="form-control" id="agreementAmountBatch" readonly />
-          </div>
-
-          <div class="mb-3 d-none">
             <label class="form-label" for="agreementIP">IP Address</label>
             <input type="text" class="form-control" id="agreementIP" readonly />
           </div>
@@ -85,7 +67,7 @@
             <label class="form-check-label" for="agreementCheck">I agree to the above</label>
           </div>
 
-          <button type="submit" class="btn btn-success w-100">Submit Agreement</button>
+          <button type="submit" class="btn btn-success w-100">Submit Email</button>
           
         </form>
       </div>
@@ -101,8 +83,6 @@
       const p = new URLSearchParams(window.location.search);
       return {
         wallet: (p.get("wallet") || "").toLowerCase(),
-        refund: p.get("refund") || "0",
-        toBeRefund: p.get("toBeRefund") || "0"
       };
     }
 
@@ -124,15 +104,11 @@
 
       // Resolve values: URL param -> localStorage -> empty
       const wallet = params.wallet || localStorage.getItem("wallet") || "";
-      const amountToRefund = params.refund || localStorage.getItem("amountToRefund") || "";
-      const amountToRefundThisBatch = params.toBeRefund || localStorage.getItem("amountToRefundThisBatch") || "";
       
       const ip = await getIP();
 
       // Prefill
       document.getElementById("agreementWallet").value = wallet;
-      document.getElementById("agreementAmount").value = amountToRefund;agreementAmountBatch
-      document.getElementById("agreementAmountBatch").value = amountToRefundThisBatch;
       document.getElementById("agreementIP").value = ip;
 
       // Submit
@@ -146,8 +122,6 @@
         const payload = {
           email: email,
           wallet: wallet,
-          amountToRefund: amountToRefund,
-          amountToRefundThisBatch: amountToRefundThisBatch,
           ip: ip,
           dateAgreed: new Date().toISOString()
         };
