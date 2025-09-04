@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /Refund-Portal/portal/
+
+# Skip existing files/folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything to index.php
+RewriteRule ^ index.php [QSA,L]
+    

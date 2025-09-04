@@ -8,7 +8,7 @@
 
                 <!-- Wallet Verification -->
                 <div class="search-container"  data-aos-delay="300">
-                    <form id="verification-form" class="d-flex flex-column align-items-center">
+                    <form action="/Refund-Portal/portal/table" method="POST" class="d-flex flex-column align-items-center">
                         <label for="search-input" class="input-label" id="input-label">Enter your Wallet ID</label>
                         <input type="text" class="form-control search-input mb-3" id="search-input"
                             placeholder="Wallet ID" required>

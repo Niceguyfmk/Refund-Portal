@@ -1,9 +1,9 @@
  <!-- Scripts -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/aos/dist/aos.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/aos/dist/aos.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 
     <script>
         // Init AOS
