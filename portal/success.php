@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZA Ventures - Agreement Success</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.blockpass.org/widget/scripts/release/3.0.2/blockpass-kyc-connect.prod.js"></script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-card {
+            background: #fff;
+            color: #333;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .success-card h1 {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .success-card p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            min-width: 180px;
+            color: #fff;
+        }
+
+        .btn-home {
+            background: #007bff;
+            border: none;
+        }
+
+        .btn-dashboard {
+            background: #28a745;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content text-center">
+
+            <!-- Success Card -->
+            <div class="success-card">
+                <h1><i class="fas fa-check-circle"></i> Agreement Submitted</h1>
+                <p>Thank you for submitting your agreement.</p>
+                <p>Please complete your Blockpass verification to receive your Refund.</p>
+                <button id="blockpass-kyc-connect" class="btn btn-success">Connect with Blockpass</button>
+
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <!-- <a href="index.html" class="btn btn-custom btn-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+          </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+  // Parse query string
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get("email");
+
+  if (email) {
+           const blockpass = new BlockpassKYCConnect("refund_portal_00d03", {
+        refId: email,    // Use the email as refId
+        email: email     // Optionally prefill the email in the widget form
+  }
+
+  );
+        blockpass.startKYCConnect();
+  }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

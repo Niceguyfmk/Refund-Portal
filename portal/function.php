@@ -1,52 +1,106 @@
 <?php
 class WalletService {
-    private $apiUrl;
-
-    public function __construct() {
-        // Replace with your actual Google Sheets API endpoint
-        $this->apiUrl = "https://sheets.googleapis.com/v4/spreadsheets/YOUR_SHEET_ID/values/A1:Z100?key=YOUR_API_KEY";
-    }
+    private array $sheets = [
+        "refund"  => "https://docs.google.com/spreadsheets/d/e/2PACX-1vS7zh1_0bx49tJqnonqXhVswUIvzkO1usdPXUmMg_KQncm1xWhVz_iOQbBt4ae4bca-yAOyO2V0leYQ/pub?gid=2114920307&single=true&output=csv",
+        "payment" => "https://docs.google.com/spreadsheets/d/e/2PACX-1vQPo_xQwDRtLSd3HtcZh6-3_lkBnRJxTh9-D-qW5qytXL77CL14FYPqhIYot6D1XiLn3N7CVUC4VZBR/pub?gid=474089793&single=true&output=csv",
+        // "summary" => "https://docs.google.com/spreadsheets/d/e/xxx/pub?gid=333&single=true&output=csv",
+    ];
 
     /**
-     * Get wallet data from Google Sheets
+     * Fetch and filter data from a given sheet
      */
-    public function getWalletData(string $walletId): array {
-        // 🔒 Sanitize input
+    private function fetchData(string $url, string $walletId): array {
+        // Sanitize walletId
         $walletId = preg_replace("/[^a-zA-Z0-9]/", "", $walletId);
-
         if (!$walletId) {
             return ["error" => "Invalid Wallet ID"];
         }
 
-        // Call Google Sheets API
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->apiUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-
-        if (curl_errno($ch)) {
-            $err = curl_error($ch);
-            curl_close($ch);
-            return ["error" => "Curl Error: " . $err];
+        // Fetch CSV
+        $csv = @file_get_contents($url);
+        if (!$csv) {
+            return ["error" => "Unable to fetch sheet data"];
         }
 
-        curl_close($ch);
-        $data = json_decode($response, true);
-
-        if (!isset($data['values'])) {
+        // Parse CSV
+        $rows = array_map("str_getcsv", explode("\n", trim($csv)));
+        if (count($rows) < 2) {
             return ["error" => "No data found in sheet"];
         }
 
-        // ✅ Filter by wallet ID (assuming column A contains wallet IDs)
-        $filtered = [];
-        foreach ($data['values'] as $row) {
-            if (isset($row[0]) && $row[0] === $walletId) {
-                $filtered[] = $row;
+        // Extract header row
+        $header = array_shift($rows);
+
+        // Find matching rows
+        $matches = [];
+        foreach ($rows as $row) {
+            if (!empty($row[0]) && trim($row[0]) === $walletId) {
+                $matches[] = @array_combine($header, $row);
             }
         }
 
-        return empty($filtered)
-            ? ["error" => "No matching wallet found"]
-            : $filtered;
+        return empty($matches) ? ["error" => "No matching wallet found"] : $matches;
     }
+
+    /**
+     * Public functions for each sheet
+     */
+    public function getRefundData(string $walletId): array {
+        return $this->fetchData($this->sheets["refund"], $walletId);
+    }
+
+    public function getPaymentData(string $walletId): array {
+        return $this->fetchData($this->sheets["payment"], $walletId);
+    }
+
+    public function getSummaryData(string $walletId): array {
+        return isset($this->sheets["summary"])
+            ? $this->fetchData($this->sheets["summary"], $walletId)
+            : ["error" => "Summary sheet not configured"];
+    }
+}
+
+# -------------------------------------------------
+# AGREEMENT SAVE HANDLER (inside same file)
+# -------------------------------------------------
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agreementEmail'])) {
+    $email  = filter_var($_POST['agreementEmail'] ?? '', FILTER_SANITIZE_EMAIL);
+    $wallet = $_POST['wallet'] ?? '';
+    $refund = $_POST['refund'] ?? 0;
+    $toBeRefund = $_POST['toBeRefund'] ?? 0;
+    $ip     = $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
+    $date   = date("c");
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email address");
+
+    }
+    if (empty($wallet)) {
+
+        die("Wallet address missing");
+    }
+
+    // --- Save to Google Sheets WebApp ---
+    $payload = json_encode([
+        "email" => $email,
+        "wallet" => $wallet,
+        "refund" => $refund,
+        "toBeRefund" => $toBeRefund,
+        "ip" => $ip,
+        "dateAgreed" => $date
+    ]);
+   
+    $url = "https://script.google.com/macros/s/AKfycbyhrXUrPcQw1DGEIYv4gKMCRM8NVGm2qBJIGCmxOpNxzWL-Xa6Q3OPKE4c-z_5EfhKzhA/exec";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+   
+    header("Location: success?email=" . urlencode($email));
+    exit;
 }

@@ -2,28 +2,43 @@
 // Get the path after domain
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Remove parent folders (/Refund-Portal/portal)
+// Remove base folder
 $base = '/Refund-Portal/portal';
 $slug = trim(str_replace($base, '', $path), '/');
 
 // Routing
-if ($slug === '' || $slug === 'home') {
-    require_once __DIR__ . '/parts/header.php';
-    require_once __DIR__ . '/parts/navbar.php';
-    require_once __DIR__ . '/refund.php';
-    require_once __DIR__ . '/parts/footer.php';
+switch ($slug) {
+    case '':
+    case 'home':
+        require __DIR__ . '/parts/header.php';
+        require __DIR__ . '/parts/navbar.php';
+        require __DIR__ . '/refund.php';
+        require __DIR__ . '/parts/footer.php';
+        break;
 
-} elseif ($slug === 'table') {
-   // require_once __DIR__ . '/parts/header.php';
-   // require_once __DIR__ . '/parts/navbar.php';
-    require_once __DIR__ . '/table.php';
-   // require_once __DIR__ . '/parts/footer.php';
+    case 'table':
+        require __DIR__ . '/table.php';
+        break;
 
-} elseif ($slug === 'verify') {
-    require_once __DIR__ . '/function.php';
+    case 'paymentplan':
+        require __DIR__ . '/paymentplan.php';
+        break;
 
-} else {
-    require_once __DIR__ . '/parts/header.php';
-    echo "<h2>404 - Page Not Found</h2>";
-    require_once __DIR__ . '/parts/footer.php';
+    case 'agreement':
+        require __DIR__ . '/agreement.php';
+        break;
+
+    case 'agreementsave':
+        require __DIR__ . '/function.php';
+        break;
+
+    case 'success':
+        require __DIR__ . '/success.php';
+        break;
+
+    default:
+        require __DIR__ . '/parts/header.php';
+        echo "<h2 class='text-center mt-5 text-danger'>404 - Page Not Found</h2>";
+        require __DIR__ . '/parts/footer.php';
+        break;
 }

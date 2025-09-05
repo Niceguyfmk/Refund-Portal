@@ -1,17 +1,23 @@
 <?php
 require_once __DIR__ . '/function.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo "Access denied. Please verify through the form.";
+// Read wallet_id from GET
+$walletId = $_GET['wid'] ?? '';
+if (empty($walletId)) {
+    header("Location: /Refund-Portal/portal?error=Missing wallet ID , Please try agin.");
     exit;
 }
 
-$walletId = $_POST['wallet_id'] ?? '';
-
 $walletService = new WalletService();
-$result = $walletService->getWalletData($walletId);
-?>
+$result = $walletService->getRefundData($walletId);
 
+if (isset($result['error'])){
+    $error=$result['error'];
+   header("Location: /Refund-Portal/portal?error=".$error);
+    exit; 
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +111,7 @@ $result = $walletService->getWalletData($walletId);
             <!-- Table -->
             <div class="table-container">
                 <div class="table-responsive">
-                    <table id="refundTable" class="table table-striped">
+                   <table id="refundTable" class="table table-striped">
                         <thead class="table-dark">
                             <tr>
                                 <th>Wallet</th>
@@ -118,9 +124,22 @@ $result = $walletService->getWalletData($walletId);
                             </tr>
                         </thead>
                         <tbody>
-                            <!--  data rows will be injected here -->
+                            <?php if (isset($result['error'])): ?>
+                                <tr><td colspan="7"><?= htmlspecialchars($result['error']) ?></td></tr>
+                            <?php else: ?>
+                                <?php foreach ($result as $row): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['Wallet']) ?></td>
+                                        <td><?= htmlspecialchars($row['OTC Name']) ?></td>
+                                        <td><?= htmlspecialchars($row['USDT Allocation before Fees']) ?></td>
+                                        <td><?= htmlspecialchars($row['USDT Allocation After fees']) ?></td>
+                                        <td><?= htmlspecialchars($row['% Distribution of OTC']) ?></td>
+                                        <td><?= htmlspecialchars($row['Capital Recouped']) ?></td>
+                                        <td><?= htmlspecialchars($row['Deal Level profit after fees']) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
-
                     </table>
 
                 </div>
@@ -141,7 +160,7 @@ $result = $walletService->getWalletData($walletId);
                 <!-- Buttons -->
                 <div class="cta-buttons">
                     <button class="btn btn-custom btn-claim" id="objBtn">Claims & Objections</button>
-                    <button class="btn btn-custom btn-accept" id="acceptBtn">Accept Refund</button>
+                    <a href="/Refund-Portal/portal/paymentplan?wid=<?= $walletId ?>" class="btn btn-custom btn-accept" id="acceptBtn">Accept Refund</a>
                 </div>
             </div>
         </div>
@@ -164,7 +183,7 @@ $result = $walletService->getWalletData($walletId);
                                 as it is final and as per the date of the distribution.
                             </p>
                             <input type="hidden" name="access_key" value="67aabbdd-b077-4c5a-a780-bf79f06dd424">
-                            <input type="hidden" name="wallet_id" id="web3formWalletId">
+                            <input type="hidden" name="wallet_id"  id="web3formWalletId" value="<?= $walletId ?>" >
                             <label for="issueText" class="form-label">Are you facing any issues?</label>
                             <textarea class="form-control" id="issueText" name="issue" rows="4" placeholder="Describe your issue here..." required></textarea>
                             <div class="invalid-feedback">Please describe your issue before submitting.</div>
@@ -190,7 +209,7 @@ $result = $walletService->getWalletData($walletId);
         document.getElementById("objBtn").addEventListener("click", function (e) {
             e.preventDefault();
             // Set wallet id in hidden field for web3form
-            document.getElementById('web3formWalletId').value = WALLET_ID;
+            //document.getElementById('web3formWalletId').value = WALLET_ID;
             const issueModal = new bootstrap.Modal(document.getElementById('issueModal'));
             issueModal.show();
         });
@@ -230,114 +249,15 @@ $result = $walletService->getWalletData($walletId);
             }
         });
 
-        // Get walletId from URL query parameter
-        function getWalletIdFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            return (params.get('wallet') || '').toLowerCase();
-        }
-        const WALLET_ID = getWalletIdFromUrl();
-        const CSV_FILE = "Investor Details.csv";
-        const FALLBACK_CSV = `Error,No CSV found`;
+        //  const acceptBtn = document.getElementById("acceptBtn");
+        // if (acceptBtn) {
+        //     acceptBtn.addEventListener("click", function () {
+        //         // Forward wallet id as query param
+        //        var WALLET_ID= document.getElementById('web3formWalletId').value;
+        //         window.location.href = `paymentplan?wallet=${encodeURIComponent(WALLET_ID)}`;
+        //     });
+        // }
 
-        let currentUser = {};
-
-        async function loadCSVData() {
-            try {
-                const response = await fetch(CSV_FILE, { cache: 'no-store' });
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const text = await response.text();
-                return text;
-            } catch (err) {
-                return "FALLBACK_CSV";
-            }
-        }
-
-        function parseCSV(csvText) {
-            const lines = csvText.replace(/\r/g, '').split('\n').filter(line => line.trim() !== '');
-            const headers = lines[0].split(',').map(h => h.trim());
-            const results = [];
-
-            for (let i = 1; i < lines.length; i++) {
-                const currentLine = lines[i].split(',');
-                const obj = {};
-                for (let j = 0; j < headers.length; j++) {
-                    obj[headers[j]] = currentLine[j] ? currentLine[j].trim() : '';
-                }
-                results.push(obj);
-            }
-            return results;
-        }
-
-        function populateTable(data) {
-            const tbody = document.querySelector('#refundTable tbody');
-            tbody.innerHTML = '';
-
-            const userRecords = data.filter(row =>
-                row["Wallet"] && row["Wallet"].toLowerCase() === WALLET_ID
-            );
-
-            if (userRecords.length > 0) {
-                currentUser = userRecords[0];
-
-                let totalProfitAfter = 0;
-                userRecords.forEach(record => {
-                    const tr = document.createElement('tr');
-                    [
-                        'Wallet',
-                        'OTC Name',
-                        'USDT Allocation before Fees',
-                        'USDT Allocation After fees',
-                        '% Distribution of OTC',
-                        'Capital Recouped',
-                        'Deal Level profit after fees'
-                    ].forEach(key => {
-                        const td = document.createElement('td');
-                        td.textContent = record[key] || 'N/A';
-                        tr.appendChild(td);
-                    });
-                    tbody.appendChild(tr);
-                    totalProfitAfter += parseFloat(record["Deal Level profit after fees"] || 0);
-                });
-
-                document.getElementById("totalAfter").textContent = totalProfitAfter.toFixed(2);
-                document.getElementById("totalsSummary").classList.remove("d-none");
-
-                const profitMessage = document.getElementById("profitMessage");
-                const acceptBtn = document.getElementById("acceptBtn");
-
-                if (totalProfitAfter > 0) {
-                    profitMessage.textContent = "Congratulations you are already in profits!";
-                    profitMessage.classList.remove("d-none");
-                    acceptBtn.disabled = true;
-                    acceptBtn.classList.add("disabled");
-                } else {
-                    profitMessage.classList.add("d-none");
-                    acceptBtn.disabled = false;
-                    acceptBtn.classList.remove("disabled");
-                }
-            } else {
-                tbody.innerHTML = `
-                    <tr class="text-danger">
-                        <td colspan="11">No record found for wallet ${WALLET_ID}</td>
-                    </tr>
-                `;
-                document.getElementById("totalsSummary").classList.add("d-none");
-            }
-        }
-
-        const acceptBtn = document.getElementById("acceptBtn");
-        if (acceptBtn) {
-            acceptBtn.addEventListener("click", function () {
-                // Forward wallet id as query param
-                window.location.href = `payment-plan.html?wallet=${encodeURIComponent(WALLET_ID)}`;
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            const csvText = await loadCSVData();
-            const parsedData = parseCSV(csvText);
-            populateTable(parsedData);
-        });
     </script>
 </body>
 
