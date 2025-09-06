@@ -11,11 +11,13 @@ if (empty($walletId)) {
 $walletService = new WalletService();
 $result = $walletService->getRefundData($walletId);
 
-if (isset($result['error'])){
-    $error=$result['error'];
-   header("Location: /Refund-Portal/portal?error=".$error);
-    exit; 
+if (isset($result['error'])) {
+    $error = $result['error'];
+    header("Location: /Refund-Portal/portal?error=" . $error);
+    exit;
 }
+
+$profit = 0.00;
 
 ?>
 
@@ -111,7 +113,7 @@ if (isset($result['error'])){
             <!-- Table -->
             <div class="table-container">
                 <div class="table-responsive">
-                   <table id="refundTable" class="table table-striped">
+                    <table id="refundTable" class="table table-striped">
                         <thead class="table-dark">
                             <tr>
                                 <th>Wallet</th>
@@ -125,9 +127,14 @@ if (isset($result['error'])){
                         </thead>
                         <tbody>
                             <?php if (isset($result['error'])): ?>
-                                <tr><td colspan="7"><?= htmlspecialchars($result['error']) ?></td></tr>
+                                <tr>
+                                    <td colspan="7"><?= htmlspecialchars($result['error']) ?></td>
+                                </tr>
                             <?php else: ?>
-                                <?php foreach ($result as $row): ?>
+                                <?php foreach ($result as $row):
+                                    $profit += floatval($row['Deal Level profit after fees']);
+                                    ?>
+
                                     <tr>
                                         <td><?= htmlspecialchars($row['Wallet']) ?></td>
                                         <td><?= htmlspecialchars($row['OTC Name']) ?></td>
@@ -144,12 +151,16 @@ if (isset($result['error'])){
 
                 </div>
                 <!-- Totals Summary -->
-                <div id="totalsSummary" class="mt-4 p-3 bg-light rounded shadow-sm text-dark d-none">
+                <div id="totalsSummary" class="mt-4 p-3 bg-light rounded shadow-sm text-dark">
                     <h5 class="fw-bold mb-3">Total Profit After Fees:</h5>
                     <div class="row text-center">
                         <div class="col-md-12">
                             <div class="p-3 border rounded bg-white">
-                                <div id="totalAfter" class="fs-5 text-success"><strong></strong>0.00</strong></div>
+                                <div id="totalAfter"
+                                    class="fs-5 <?= ($profit >= 0) ? 'text-success' : 'text-danger' ?>">
+                                    <strong><?= $profit; ?></strong>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -160,7 +171,8 @@ if (isset($result['error'])){
                 <!-- Buttons -->
                 <div class="cta-buttons">
                     <button class="btn btn-custom btn-claim" id="objBtn">Claims & Objections</button>
-                    <a href="/Refund-Portal/portal/paymentplan?wid=<?= $walletId ?>" class="btn btn-custom btn-accept" id="acceptBtn">Accept Refund</a>
+                    <a href="/Refund-Portal/portal/paymentplan?wid=<?= $walletId ?>" class="btn btn-custom btn-accept"
+                        id="acceptBtn">Accept Refund</a>
                 </div>
             </div>
         </div>
@@ -174,7 +186,8 @@ if (isset($result['error'])){
                     <h5 class="modal-title fw-bold" id="issueModalLabel">Report an Issue</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="web3form-issue" action="https://api.web3forms.com/submit" method="POST" class="needs-validation" novalidate>
+                <form id="web3form-issue" action="https://api.web3forms.com/submit" method="POST"
+                    class="needs-validation" novalidate>
                     <div class="modal-body text-dark">
                         <div class="mb-3">
                             <p> Only claims and objections for <b>missing allocation</b> and
@@ -183,13 +196,16 @@ if (isset($result['error'])){
                                 as it is final and as per the date of the distribution.
                             </p>
                             <input type="hidden" name="access_key" value="67aabbdd-b077-4c5a-a780-bf79f06dd424">
-                            <input type="hidden" name="wallet_id"  id="web3formWalletId" value="<?= $walletId ?>" >
+                            <input type="hidden" name="wallet_id" id="web3formWalletId" value="<?= $walletId ?>">
                             <label for="issueText" class="form-label">Are you facing any issues?</label>
-                            <textarea class="form-control" id="issueText" name="issue" rows="4" placeholder="Describe your issue here..." required></textarea>
+                            <textarea class="form-control" id="issueText" name="issue" rows="4"
+                                placeholder="Describe your issue here..." required></textarea>
                             <div class="invalid-feedback">Please describe your issue before submitting.</div>
                         </div>
-                        <div id="web3form-success" class="alert alert-success d-none mt-2">Thank you for your feedback! We have received your issue.</div>
-                        <div id="web3form-error" class="alert alert-danger d-none mt-2">There was an error submitting your issue. Please try again later.</div>
+                        <div id="web3form-success" class="alert alert-success d-none mt-2">Thank you for your feedback!
+                            We have received your issue.</div>
+                        <div id="web3form-error" class="alert alert-danger d-none mt-2">There was an error submitting
+                            your issue. Please try again later.</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -204,7 +220,21 @@ if (isset($result['error'])){
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profitValue = <?= $profit; ?>; // PHP value injected into JS
+            const profitMessage = document.getElementById("profitMessage");
+            const acceptBtn = document.getElementById("acceptBtn");
 
+            if (profitValue > 0) {
+                profitMessage.textContent = "Congratulations! You are already in profits!";
+                profitMessage.classList.remove("d-none");
+                profitMessage.classList.add("alert-success");
+
+                // Disable accept button
+                acceptBtn.disabled = true;
+                acceptBtn.classList.add("disabled");
+            }
+        });
         // Show the issue modal when "Claims & Objections" is clicked
         document.getElementById("objBtn").addEventListener("click", function (e) {
             e.preventDefault();
