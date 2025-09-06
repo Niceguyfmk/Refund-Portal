@@ -147,7 +147,8 @@ $nextTranche = $amountToRefund * 0.1;
 
                 <div class="mb-4">
                     <label for="nextTranche" class="form-label">Next Tranche to be Paid</label>
-                    <div class="form-control bg-light"><?= number_format($nextTranche, 2) ?> (10% of balance)</div>
+                    <div class="form-control bg-light"><?php //echo number_format($nextTranche, 2) ?> 10% of remaining balance</div>
+                    
                 </div>
 
                 <!-- Save Plan -->

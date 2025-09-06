@@ -86,27 +86,27 @@
                 <button id="blockpass-kyc-connect" class="btn btn-success">Connect with Blockpass</button>
 
                 <div class="d-flex justify-content-center gap-3 mt-4">
-                    <!-- <a href="index.html" class="btn btn-custom btn-home">
-            <i class="fas fa-arrow-left"></i> Back to Home
-          </a> -->
+                    <a href="../index.html" class="btn btn-success">
+                        Back to Home
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     <script>
-  // Parse query string
-  const params = new URLSearchParams(window.location.search);
-  const email = params.get("email");
+        // Parse query string
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get("email");
 
-  if (email) {
-           const blockpass = new BlockpassKYCConnect("refund_portal_00d03", {
-        refId: email,    // Use the email as refId
-        email: email     // Optionally prefill the email in the widget form
-  }
+        if (email) {
+            const blockpass = new BlockpassKYCConnect("refund_portal_00d03", {
+                refId: email,    // Use the email as refId
+                email: email     // Optionally prefill the email in the widget form
+            }
 
-  );
-        blockpass.startKYCConnect();
-  }
+            );
+            blockpass.startKYCConnect();
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
