@@ -18,8 +18,8 @@
                 <!-- Wallet Verification -->
                 <div class="search-container"  data-aos-delay="300">
                     <form action="/Refund-Portal/portal/table" method="GET" class="d-flex flex-column align-items-center">
-                        <label for="search-input" class="input-label" id="input-label">Enter your Wallet ID</label>
-                        <input type="text"  name="wid" class="form-control search-input mb-3" id="wallet_id"
+                        <label for="wid" class="input-label" id="input-label">Enter your Wallet ID</label>
+                        <input type="text"  name="wid" class="form-control search-input mb-3" id="wid"
                             placeholder="Wallet ID" required>
                         <button class="search-btn" type="submit"><i class="fas fa-search"></i> Verify</button>
                         <div id="error-message" class="error-message"></div>
